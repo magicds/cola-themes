@@ -1,0 +1,282 @@
+.posts {
+	padding: 1.875em;
+
+	.post_container {
+		padding: 2.5em;
+	}
+
+	.post_in_list{
+		line-height: 2.5;
+		.info{
+			margin-top: 2em;
+		}
+	}
+
+
+	.post {
+		background: #fff;
+		margin: 0 0 1.875em;
+		border-radius: 0.2em;
+		box-shadow: 0 0.1em 0.35em rgba(0, 0, 0, 0.26);
+		.content {
+			padding: 2.5em;
+		}
+		.title {
+			margin: 0 0 1em;
+			font-size: 1.875em;
+		}
+		.post_body {
+			img {
+				max-width: 20em;
+			}
+		}
+		.info {
+			font-size: 0.75em;
+			color: #666;
+			.date {
+				float: left;
+				margin: 0 1.5em 0 0;
+				.icon-icon_clock {
+					float: left;
+					display: inline;
+					margin: 0 0.15em 0 0;
+					font-size: 2.4em;
+				}
+				span.time {
+					float: left;
+					line-height: 2.4em;
+				}
+			}
+			.visitors {
+				float: left;
+				margin: 0 1.5em 0 0;
+				.icon-icon_book {
+					float: left;
+					display: inline;
+					line-height: 1.05;
+					margin: 0 0.15em 0 0;
+					font-size: 2.4em;
+				}
+				span {
+					float: left;
+					line-height: 2.4em;
+				}
+			}
+			.tags {
+				line-height: 2.4em;
+				a {
+					margin: 0 0.5em 0 0;
+				}
+			}
+		}
+
+	}
+}
+
+
+$primary1: #31b5bd;
+$accent1: #df8a7f;
+$accent2: #f5c5bf;
+$accent3: #3c3d60;
+
+
+@mixin colored_grid_css{
+	#main{
+		padding: 0;
+	}
+
+	.posts {
+		padding: 0;
+
+		.post_container {
+			padding: 0;
+		}
+
+		.post{
+			margin: 0;
+			border-radius: 0;
+
+			.title{
+				padding: 60px 12px 5px 12px;
+				margin: 0;
+				line-height: 1.2;
+				a{
+					color: #fff;
+					font-size: 18px;
+				}
+			}
+
+			.post_body{
+				display: none;
+			}
+
+			.info{
+				padding: 0 15px 20px 15px;
+				color: #f4f4f4;
+				.icon-icon_clock{
+					display: none !important;
+				}
+				.visitors{
+					display: none;
+				}
+
+				.tags{
+					a{
+						color: #f4f4f4;
+						&:hover{
+							color: #fff;
+						}
+					}
+				}
+			}
+		}
+
+
+		.grid_1 .post{ background: rgba(mix($primary1,#000,0.7),0.85);}
+		.grid_2 .post{ background: rgba(mix($accent1,#000,0.6),0.85);}
+		.grid_3 .post{ background: rgba(mix($accent3,#000,0.9),0.85);}
+	}
+
+
+}
+
+
+
+
+
+.detail_post{
+	max-width: 960px;
+	margin: 0 auto;
+
+	.post{
+		background: #fff;
+		border-radius: 0.2em;
+		box-shadow: 0 0.1em 0.35em rgba(0,0,0,0.26);
+
+		.post_container{
+			padding: 2.5em;
+		}
+
+		.title {
+			margin: 0 0 1em;
+			padding: 0 0 1em;
+			border-bottom: 1px solid rgba(0,0,0,0.12);
+			font-size: 1.875em;}
+		.info {
+			font-size: 0.75em;
+			color: rgba(0,0,0,0.54);
+			.date {
+				float: left;
+				margin: 0 1.5em 0 0;
+				.icon-icon_clock {
+					float: left;
+					display: inline;
+					margin: 0 0.15em 0 0;
+					font-size: 2.4em;}
+				time {
+					float: left;
+					line-height: 2.4em;}
+			}
+			.visitors {
+				float: left;
+				margin: 0 1.5em 0 0;
+				.icon-icon_book {
+					float: left;
+					display: inline;
+					margin: 0 0.15em 0 0;
+					font-size: 2.4em;}
+				span {
+					float: left;
+					line-height: 2.4em;}
+			}
+			.tags {
+				line-height: 2.4em;
+				a { margin: 0 0.5em 0 0;}
+			}
+		}
+	}
+
+	.post_body {
+		h1, h2, h3, h4, h5, h6 {
+		line-height: 1.2;
+		margin: 1.5em 0;
+		font-weight: bold;}
+		h2 {
+			padding: 0 0 0 0.5em;
+			border-left: 0.2em solid #83cace;
+		}
+		p, pre, iframe {
+			line-height: 1.6;
+			margin: 0 0 1.5em;
+		}
+
+		h1, h2, h3, h4, h5, h6 { letter-spacing: -0.02em;}
+		h1 { font-size: 2.2em;}
+		h2 { font-size: 1.8em;}
+		h3 { font-size: 1.5em;}
+		h4 { font-size: 1.2em;}
+		h5 { font-size: 1em;}
+		h6 { font-size: 0.8em;}
+	}
+
+	hr.post_body_end{
+		border: none;
+		border-bottom: 1px solid #efefef;
+		margin: 3em 0 1em;
+
+
+	}
+}
+
+
+@media screen and (max-width: 48em){
+	@include  colored_grid_css;
+	.footer{
+		display: none;
+	}
+
+	.detail_post .post .post_container{
+		padding: 1em 10px;
+	}
+}
+
+
+@media screen and (min-width: 48em) and (max-width: 64em){
+	@include  colored_grid_css;
+
+	.grid_1 { width: 100%; }
+}
+
+
+
+.related_posts {
+	width: 100%;
+
+	a {
+		display: block;
+		height: 2em;
+		line-height: 2em;
+		font-size: 1.2em;
+		text-align: center;}
+	.action {
+		display: block;
+		color: #333;
+		&:hover{
+			color: #31b5bd;
+		}
+		.arrow {
+			width: 1.5em;
+			height: 2em;
+			line-height: 2em;}
+	}
+	.pre {
+		float: left;
+		.arrow { float: left;}
+		span { float: left;}
+	}
+	.next {
+		float: right;
+		.arrow { float: right;}
+		span { float: right;}
+	}
+}

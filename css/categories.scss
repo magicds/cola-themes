@@ -1,0 +1,109 @@
+@mixin animation ($value) {
+	-webkit-animation: $value;
+	animation: $value;}
+@mixin display-flex () {
+	display: -webkit-flex;
+	display: flex;}
+
+@mixin flex-flow ($value) {
+	-webkit-flex-flow: $value;
+	flex-flow: $value;}
+
+@mixin transform ($value) {
+	-webkit-transform: $value;
+	transform: $value;}
+@mixin transform-origin ($value) {
+	-webkit-transform-origin: $value;
+	transform-origin: $value;}
+@mixin transition ($value) {
+	-webkit-transition: $value;
+	transition: $value;}
+@mixin transition-transform ($value1,$value2) {
+	-webkit-transition: -webkit-transform $value1 $value2;
+	transition: transform $value1 $value2;}
+
+
+$easing1: cubic-bezier(0.15, 0.95, 0.41, 0.95);
+
+
+#categories .cat_list {
+	@include display-flex();
+	@include flex-flow (row wrap);
+	padding: 0 0 3em;
+
+	.category {
+		padding: 2.8em 0 0;
+		@include flex (1 20em);
+
+		.pic {
+			display: block;
+			height: 10em;
+			overflow: hidden;
+			margin: 0 0.9em;
+
+			span {
+				display: block;
+				width: 100%;
+				height: 100%;
+				background-position: center center;
+				background-repeat: no-repeat;
+				background-size: cover;
+
+				border-radius: 0.2em;
+				opacity: 0;
+				@include transition-transform (1s, $easing1);
+				@include transform-origin (50% 50%);
+				@include transform (scale(1));
+				&:hover { @include transform (scale(1.05));}
+
+			}
+		}
+
+		h2 {
+			margin: 1.5em 0.9em 0.5em;
+			a { font-size: 1.2em;}
+		}
+		p {
+			margin: 0 1.1em;
+			font-size: 0.85em;
+		}
+		.pic span { @include animation (fadein 1.2s $easing1 0s both);}
+	}
+}
+
+// phone
+@media screen and (max-width: 35.5em){
+	#categories .cat_list {
+		padding: 0 0 3em;
+		.category {
+			padding: 3em 0 0;
+			text-align: center;
+			.pic {
+				display: inline-block;
+				width: 11.25em;
+				height: 11.25em;
+				overflow: hidden;
+				border-radius: 50%;
+			}
+
+			h2 {
+				margin: 0.8em 0;
+				a { font-size: 1.2em;}
+			}
+			p {
+				padding: 0 3em;
+				font-size: 0.85em;}
+		}
+	}
+}
+
+
+
+@-webkit-keyframes fadein {
+	0% { opacity: 0; }
+	100% { opacity: 1; }
+}
+@keyframes fadein {
+	0% { opacity: 0; }
+	100% { opacity: 1; }
+}

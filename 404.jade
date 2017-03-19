@@ -1,0 +1,11 @@
+html
+	head
+		meta(name="viewport", content="width=device-width")
+		title= _("Not Found")
+		+h.load("/template/css/reset.css", "/template/css/fonts.css", "/template/css/404.scss")
+	body
+		.not_found
+			h1 404
+			p 你哪个单位的？走错了吧
+			.img
+			a(href="/") 返回首页

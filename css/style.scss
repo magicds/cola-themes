@@ -1,0 +1,57 @@
+//*********************************************************************//
+//                               global                                //
+//*********************************************************************//
+
+@mixin box-sizing($value) {
+	-webkit-box-sizing: $value;
+	box-sizing: $value;
+}
+
+@mixin aColor($value) {
+	color: $value;
+	&:active {
+		color: $value;
+	}
+	&:visited {
+		color: $value;
+	}
+	&:hover {
+		color: lighten($value, 15%);
+	}
+}
+
+$primary1: #31b5bd;
+$light1: rgba(255, 255, 255, 1);
+* {
+	@include box-sizing(content-box);
+}
+
+html, body {
+	height: 100%;
+}
+
+body {
+	line-height: 1.6;
+	font-family: -apple-system, Helvetica, Arial, "PingFang SC", "Source Han Sans SC", "Microsoft YaHei", "WenQuanYi MicroHei", sans-serif;
+	font-size: 1em;
+	color: rgba(0, 0, 0, 0.87);
+	background: #f5f5f5;
+}
+
+a {
+	@include aColor($primary1);
+}
+
+input, textarea, button {
+	font-family: -apple-system, Helvetica, Arial, "PingFang SC", "Source Han Sans SC", "Microsoft YaHei", "WenQuanYi MicroHei", sans-serif;
+}
+
+::selection {
+	background: $primary1;
+	color: $light1;
+}
+
+::-moz-selection {
+	background: $primary1;
+	color: $light1;
+}

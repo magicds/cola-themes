@@ -1,0 +1,36 @@
+extends base.jade
+
+block head
+    +h.load('markdown')
+
+block content
+    .detail_post: .detail_post_container
+		.post: .post_container
+			h1.title= post.title
+			.post_body.markdown= post.content
+			.info.clearfix
+				.date
+					.icon-icon_clock
+					time= post.date('%Y-%m-%d %H:%M')
+				.visitors
+					.icon-icon_book
+					span= post.vists or 0
+				if post.tags: .tags: for tag in post.tags
+					a(href="/tag/{{tag}}")= tag
+
+			hr.post_body_end
+
+			+util.html_comments(post)
+
+
+			//- 上一篇、下一篇、以及移动端的“回顶部”
+			.related_posts.clearfix
+				if posts.pre_one
+					a.action.pre(href=posts.pre_one.url)
+						.arrow.icon-arrow2_left
+						span= posts.pre_one.title
+				if posts.next_one
+					a.action.next(href=posts.next_one.url)
+						.arrow.icon-arrow2_right
+						span= posts.next_one.title
+				a.gotop.icon-arrow_up(href="#")
