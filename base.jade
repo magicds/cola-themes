@@ -5,8 +5,9 @@ html
         block title
             title= post.title or site.title
         +h.headers
-
-        +h.load('pure')
+        
+        //- 不使用pure框架了
+        //- +h.load('pure')
 		//- +h.load('/template/css/nav.scss')
 		+h.load('/template/css/nav.css')
 		+h.load('/template/css/reset.css')
