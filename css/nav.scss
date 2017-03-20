@@ -116,10 +116,15 @@ $easing: cubic-bezier(0.15, 0.95, 0.41, 0.95);
 	height: 60px;
 	position: relative;
 	z-index: 9;
+	&:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
 
 	@at-root .left_side {
 		float: left;
-		* {
+		& > * {
 			float: left;
 		}
 	}

@@ -48,10 +48,15 @@
   position: relative;
   z-index: 9;
 }
+.header:after {
+  content: "";
+  display: table;
+  clear: both;
+}
 .left_side {
   float: left;
 }
-.left_side * {
+.left_side > * {
   float: left;
 }
 .right_side {
