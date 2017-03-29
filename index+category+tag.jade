@@ -11,8 +11,10 @@ block content
     .posts: .posts_container: .pure-g
 		+page()
 			for post in posts
-				grid_class = 'grid pure-u-1 pure-u-md-1-2 pure-u-lg-1 ' + loop.cycle('grid_1', 'grid_2', 'grid_3')
-				div(class=grid_class): .post.post_in_list: .post_container
+				//- grid_class = 'grid pure-u-1 pure-u-md-1-2 pure-u-lg-1 ' + loop.cycle('grid_1', 'grid_2', 'grid_3')
+				grid_class = 'grid ' + loop.cycle('grid_1', 'grid_2', 'grid_3')
+				//- div(class=grid_class): .post.post_in_list: .post_container
+				div(class=grid_class): .post.post_in_list.post_container
 					h1.title
 						a(href=post.url)= post.title
 					.post_body.markdown= post.content.opening or post.content.limit(250)
