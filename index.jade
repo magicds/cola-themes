@@ -8,7 +8,8 @@ block head
 
 block content
 	+posts.set_min_per_page(6)
-    .posts: .posts_container: .pure-g
+    //- .posts: .posts_container: .pure-g
+    .posts.posts_container
 		+page()
 			for post in posts
 				//- grid_class = 'grid pure-u-1 pure-u-md-1-2 pure-u-lg-1 ' + loop.cycle('grid_1', 'grid_2', 'grid_3')

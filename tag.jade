@@ -1,0 +1,14 @@
+extends base.jade
+
+block title
+	title= site.title if not request.path.strip("/") else request.offset_path1
+
+block head
+    //- +h.load('markdown')
+
+block content
+    ul: for tag_name, tag_count in site.tags
+        li
+            a(href="/tag/{{tag_name}}")
+                span= tag_name
+                span= tag_count
