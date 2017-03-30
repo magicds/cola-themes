@@ -6,9 +6,16 @@ block title
 block head
     //- +h.load('markdown')
 
-block content
-    ul: for tag_name, tag_count in site.tags
-        li
-            a(href="/tag/{{tag_name}}")
-                span= tag_name
-                span= tag_count
+block content    
+    span= request.get_offset_path(1)
+    span= request.path
+    if request.get_offset_path(1) == ''
+        ul: for tag_name, tag_count in site.tags
+            li
+                a(href="/tag/{{tag_name}}")
+                    span= tag_name
+                    span= tag_count        
+    else
+        for post in posts
+            h2= post.title
+            .content= post.content                    
