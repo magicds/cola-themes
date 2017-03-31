@@ -5,3 +5,5 @@
 - 不使用pure，而换做了[ZUI - http://zui.sexy](http://zui.sexy)
 - 将scss换为编译后的css。
 - 修复官方主题中的诸多显示问题。
+
+原tag进行了拆分。
