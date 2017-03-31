@@ -10,7 +10,6 @@ block content
     //- span= request.get_offset_path(1)
     //- span= request.path
 	this_tag = request.get_offset_path(1)
-	this_count = 0
     if this_tag == ''
         ul: for tag_name, tag_count in site.tags
             li
@@ -19,11 +18,15 @@ block content
                     span= tag_count        
     else
 		h2= this_tag
-			span= posts.count
-		ul: for post in posts
-			this_count = this_count + 1
+			this_posts = d.get_data(tags=this_tag)
+			
+			span= this_posts.length
+			span= this_posts.length()
+			
+		ul: for post in this_posts
 			li: a(href="{{post.url}}")
                 h2= post.title
                 //- span= post.url
         hr
-		span= '共 ' + this_count + '篇'
+		span= '共 ' + this_posts.length + ' 篇'
+		//- span= posts.length()
