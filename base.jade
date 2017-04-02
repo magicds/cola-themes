@@ -30,8 +30,8 @@ html
 						.right_side
 							+site.just_nav
 							.search
-								input(type="text", data-role="none")
-								a.icon-icon_search(href="javascript:;")
+								input(id="search-input", type="text", data-role="none")
+								a.icon-icon_search(href="javascript:;",id="search-icon")
 				if request.path == '/'
 					+scroll(jump=True, color="rgba(255, 255, 255, 0.54)", hover_color="rgba(255, 255, 255, 1)")
 						.index_header

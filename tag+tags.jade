@@ -33,6 +33,7 @@ block content
 		ul: for post in this_posts
 			li: a(href="{{post.url}}")
                 h2= post.title
+				span= post.date('%Y-%m-%d')
                 //- span= post.url
         hr
 		span= '共 ' + this_posts.length + ' 篇'
