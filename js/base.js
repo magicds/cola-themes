@@ -5,8 +5,7 @@
         e.which === 13 && search();
     });
     
-    $('body').on('click','#search-icon',search);
-
+    $('#search-icon').on('click',search);
 
     var search = function () {
         var key = $.trim($searchInput[0].value);
