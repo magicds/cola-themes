@@ -22,7 +22,8 @@ block content
             li
                 a(href="/tag/{{tag_name}}")
                     span= tag_name
-                    span= tag_count        
+                    span= tag_count
+		span= '共' + site.tags.length + '个标签'
     else
 		h2= this_tag
 			this_posts = d.get_data(tags=this_tag)
