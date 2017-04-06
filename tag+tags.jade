@@ -30,9 +30,9 @@ block content
 
 		ul.tag-list: for post in this_posts
 			li.tag-item: a(href="{{post.url}}")
-                h2= post.title
-				span= post.date('%Y-%m-%d')
+                h2.tag-post-title= post.title
+				span.tag-post-date= post.date('%Y-%m-%d')
                 //- span= post.url
         hr
-		span= '共 ' + this_posts.length + ' 篇'
+		span.tag-post-total= '共 ' + this_posts.length + ' 篇'
 		
