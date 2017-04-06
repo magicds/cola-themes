@@ -18,24 +18,21 @@ block content
     //- span= request.path
 	//- span= this_title
     if this_tag == ''
-        ul: for tag_name, tag_count in site.tags
-            li
-                a(href="/tag/{{tag_name}}")
+        ul.tags-list: for tag_name, tag_count in site.tags
+            li.tags-item
+                a(class="tags-link",href="/tag/{{tag_name}}")
                     span= tag_name
                     span= tag_count
-		span= '共' + site.tags.length + '个标签'
+		span.tags-total= '共' + site.tags.length + '个标签'
     else
 		h2= this_tag
 			this_posts = d.get_data(tags=this_tag)
-			
-			span= this_posts.length
-			span= this_posts.length()
-			
-		ul: for post in this_posts
-			li: a(href="{{post.url}}")
+
+		ul.tag-list: for post in this_posts
+			li.tag-item: a(href="{{post.url}}")
                 h2= post.title
 				span= post.date('%Y-%m-%d')
                 //- span= post.url
         hr
 		span= '共 ' + this_posts.length + ' 篇'
-		//- span= posts.length()
+		
