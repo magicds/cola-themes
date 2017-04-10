@@ -10,13 +10,16 @@ block content
 			.post_body.markdown= post.content
 			.info.clearfix
 				.date
-					.icon-icon_clock
-					time= post.date('%Y-%m-%d %H:%M')
+					i.icon.icon-time
+					span.time= post.date('%Y-%m-%d %H:%M')
 				.visitors
-					.icon-icon_book
+					i.icon.icon-book
 					span= post.vists or 0
-				if post.tags: .tags: for tag in post.tags
-					a(href="/tag/{{tag}}")= tag
+				if post.tags
+                    .post-tags
+                        i.icon.icon-tags
+                        .tags: for tag in post.tags
+    					    a(href="/tag/{{tag}}")= tag
 
 			hr.post_body_end
 
@@ -26,11 +29,11 @@ block content
 			//- 上一篇、下一篇、以及移动端的“回顶部”
 			.related_posts.clearfix
 				if posts.pre_one
-					a.action.pre(href=posts.pre_one.url)
-						.arrow.icon-arrow2_left
+					a.action.pre(href=posts.pre_one.url,title=posts.pre_one.title)
+						.arrow.icon.icon-chevron-left
 						span= posts.pre_one.title
 				if posts.next_one
-					a.action.next(href=posts.next_one.url)
-						.arrow.icon-arrow2_right
+					a.action.next(href=posts.next_one.url,title=posts.pre_one.title)
+						.arrow.icon.icon-chevron-right
 						span= posts.next_one.title
 				//- a.gotop.icon-arrow_up(href="#")
