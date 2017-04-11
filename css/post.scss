@@ -13,70 +13,76 @@
 		}
 	}
 
-	.post {
-		background: #fff;
-		margin: 0 0 1.875em;
-		border-radius: 0.2em;
-		box-shadow: 0 0.1em 0.35em rgba(0, 0, 0, 0.26);
+	@at-root {
+		.post {
+			background: #fff;
+			margin: 0 0 1.875em;
+			border-radius: 0.2em;
+			box-shadow: 0 0.1em 0.35em rgba(0, 0, 0, 0.26);
 
-		.content {
-			padding: 2.5em;
-		}
-
-		.title {
-			margin: 0 0 1em;
-			font-size: 1.875em;
-		}
-
-		.post_body {
-			img {
-				max-width: 20em;
-			}
-		}
-
-		.info {
-			font-size: 0.75em;
-			color: #666;
-			
-			.icon {
-				float: left;
-				// display: inline;
-				line-height: 1.05;
-				margin: 0 0.15em 0 0;
-				font-size: 2.4em;
+			.content {
+				padding: 2.5em;
 			}
 
-			.date {
-				float: left;
-				margin: 0 1.5em 0 0;				
+			.title {
+				margin: 0 0 1em;
+				font-size: 1.875em;
+			}
 
-				span.time {
+			.post_body {
+				img {
+					max-width: 20em;
+				}
+			}
+
+			@at-root .post-info {
+				font-size: 0.75em;
+				color: #666;
+				
+				.icon {
 					float: left;
-					line-height: 2.4em;
+					// display: inline;
+					line-height: 28px;
+					margin: 0 0.25em 0 0;
 				}
-			}
 
-			.visitors {
-				float: left;
-				margin: 0 1.5em 0 0;
-			
-
-				span {
+				.date {
 					float: left;
-					line-height: 2.4em;
-				}
-			}
+					margin: 0 1.5em 0 0;				
 
-			.tags {
-				line-height: 2.4em;
-
-				a {
-					margin: 0 0.5em 0 0;
+					span.time {
+						float: left;
+						line-height: 28px;
+					}
 				}
+
+				.visitors {
+					float: left;
+					margin: 0 1.5em 0 0;
+				
+
+					span {
+						float: left;
+						line-height: 28px;
+					}
+				}
+
+				.post-tags {
+					float:left;
+					line-height: 28px;
+
+					a {
+						margin: 0 0.5em 0 0;
+					}
+				}
+				.tags {
+					float: left;
+				}
+				
 			}
-			
 		}
 	}
+	
 }
 $primary1: #31b5bd;
 $accent1: #df8a7f;
