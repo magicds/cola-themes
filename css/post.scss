@@ -37,17 +37,18 @@
 		.info {
 			font-size: 0.75em;
 			color: #666;
+			
+			.icon {
+				float: left;
+				// display: inline;
+				line-height: 1.05;
+				margin: 0 0.15em 0 0;
+				font-size: 2.4em;
+			}
 
 			.date {
 				float: left;
-				margin: 0 1.5em 0 0;
-
-				.icon-icon_clock {
-					float: left;
-					display: inline;
-					margin: 0 0.15em 0 0;
-					font-size: 2.4em;
-				}
+				margin: 0 1.5em 0 0;				
 
 				span.time {
 					float: left;
@@ -58,14 +59,7 @@
 			.visitors {
 				float: left;
 				margin: 0 1.5em 0 0;
-
-				.icon {
-					float: left;
-					display: inline;
-					line-height: 1.05;
-					margin: 0 0.15em 0 0;
-					font-size: 2.4em;
-				}
+			
 
 				span {
 					float: left;
@@ -80,6 +74,7 @@
 					margin: 0 0.5em 0 0;
 				}
 			}
+			
 		}
 	}
 }

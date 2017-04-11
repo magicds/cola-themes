@@ -9,16 +9,16 @@ block content
 			h1.title= post.title
 			.post_body.markdown= post.content
 			.info.clearfix
-				.date
+				.date.clearfix
 					i.icon.icon-time
 					span.time= post.date('%Y-%m-%d %H:%M')
-				.visitors
+				.visitors.clearfix
 					i.icon.icon-book
 					span= post.vists or 0
-				if post.tags
-                    .post-tags
+				if post.tags.clearfix
+                    .post-tags.clearfix
                         i.icon.icon-tags
-                        .tags: for tag in post.tags
+                        .tags.clearfix: for tag in post.tags
     					    a(href="/tag/{{tag}}")= tag
 
 			hr.post_body_end
