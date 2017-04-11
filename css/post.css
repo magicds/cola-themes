@@ -19,6 +19,7 @@
     .post .post_body img {
       max-width: 20em; }
     .post-info {
+      cursor: default;
       font-size: 0.75em;
       color: #666; }
       .post-info .icon {
