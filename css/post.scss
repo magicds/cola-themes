@@ -1,362 +1,322 @@
 .posts {
-	padding: 1.875em;
+    padding : 1.875em;
 
-	.post_container {
-		padding: 2.5em;
-	}
+    .post_container {
+        padding : 2.5em;
+    }
 
-	.post_in_list {
-		line-height: 2.5;
+    .post_in_list {
+        line-height : 2.5;
 
-		.info {
-			margin-top: 2em;
-		}
-	}
+        .info {
+            margin-top : 2em;
+        }
+    }
 
-	@at-root {
-		.post {
-			background: #fff;
-			margin: 0 0 1.875em;
-			border-radius: 0.2em;
-			box-shadow: 0 0.1em 0.35em rgba(0, 0, 0, 0.26);
+    @at-root {
+        .post {
+            margin : 0 0 1.875em;
 
-			.content {
-				padding: 2.5em;
-			}
+            border-radius : .2em;
+            background : #fff;
+            -webkit-box-shadow : 0 .1em .35em rgba(0, 0, 0, .26);
+                    box-shadow : 0 .1em .35em rgba(0, 0, 0, .26);
 
-			.title {
-				margin: 0 0 1em;
-				font-size: 1.875em;
-			}
+            .content {
+                padding : 2.5em;
+            }
 
-			.post_body {
-				img {
-					max-width: 20em;
-				}
-			}
+            .title {
+                font-size : 1.875em;
 
-			@at-root .post-info {
-				cursor: default;
-				font-size: 0.75em;
-				color: #666;
-				
-				.icon {
-					float: left;
-					// display: inline;
-					line-height: 28px;
-					margin: 0 0.25em 0 0;
-				}
+                margin : 0 0 1em;
+            }
 
-				.date {
-					float: left;
-					margin: 0 1.5em 0 0;				
 
-					span.time {
-						float: left;
-						line-height: 28px;
-					}
-				}
 
-				.visitors {
-					float: left;
-					margin: 0 1.5em 0 0;
-				
+            @at-root .post-info {
+                font-size : .75em;
 
-					span {
-						float: left;
-						line-height: 28px;
-					}
-				}
+                cursor : default;
 
-				.post-tags {
-					float:left;
-					line-height: 28px;
+                color : #666;
 
-					a {
-						margin: 0 0.5em 0 0;
-					}
-				}
-				.tags {
-					float: left;
-				}
-				
-			}
-		}
-	}
-	
+                .icon {
+                    /* display: inline;*/
+                    line-height : 28px;
+
+                    float : left;
+
+                    margin : 0 .25em 0 0;
+                }
+
+                .date {
+                    float : left;
+
+                    margin : 0 1.5em 0 0;
+
+                    span.time {
+                        line-height : 28px;
+
+                        float : left;
+                    }
+                }
+
+                .visitors {
+                    float : left;
+
+                    margin : 0 1.5em 0 0;
+
+
+                    span {
+                        line-height : 28px;
+
+                        float : left;
+                    }
+                }
+
+                .post-tags {
+                    line-height : 28px;
+
+                    float : left;
+
+                    a {
+                        margin : 0 .5em 0 0;
+                    }
+                }
+                .tags {
+                    float : left;
+
+                    max-width : calc(100% - 20px);
+                }
+            }
+        }
+    }
 }
-$primary1: #31b5bd;
-$accent1: #df8a7f;
-$accent2: #f5c5bf;
-$accent3: #3c3d60;
+$primary1 : #31b5bd;
+$accent1 : #df8a7f;
+$accent2 : #f5c5bf;
+$accent3 : #3c3d60;
 @mixin colored_grid_css {
-	#main {
-		padding: 0;
-	}
+    #main {
+        padding : 0;
+    }
 
-	.posts {
-		padding: 0;
+    .posts {
+        padding : 0;
 
-		.post_container {
-			padding: 0;
-		}
+        .post_container {
+            padding : 0;
+        }
 
-		.post {
-			margin: 0;
-			border-radius: 0;
+        @at-root .post {
+            margin : 0;
 
-			.title {
-				padding: 60px 12px 5px;
-				margin: 0;
-				line-height: 1.2;
+            border-radius : 0;
 
-				a {
-					color: #fff;
-					font-size: 18px;
-				}
-			}
+            .title {
+                line-height : 1.2;
 
-			.post_body {
-				display: none;
-			}
+                margin : 0;
+                padding : 60px 12px 5px;
 
-			.info {
-				padding: 0 15px 20px;
-				color: #f4f4f4;
+                a {
+                    font-size : 18px;
 
-				.icon-icon_clock {
-					display: none !important;
-				}
+                    color : #fff;
+                }
+            }
 
-				.visitors {
-					display: none;
-				}
+            .post_body {
+                display : none;
+            }
 
-				.tags {
-					a {
-						color: #f4f4f4;
+            @at-root .post-info {
+                padding : 0 15px 20px;
 
-						&:hover {
-							color: #fff;
-						}
-					}
-				}
-			}
-		}
+                color : #f4f4f4;
+            }
+        }
 
-		.grid_1 .post {
-			background: rgba(mix($primary1,#000,0.7),0.85);
-		}
+        .grid_1 .post {
+            background : rgba(mix($primary1,#000,.7),.85);
+        }
 
-		.grid_2 .post {
-			background: rgba(mix($accent1,#000,0.6),0.85);
-		}
+        .grid_2 .post {
+            background : rgba(mix($accent1,#000,.6),.85);
+        }
 
-		.grid_3 .post {
-			background: rgba(mix($accent3,#000,0.9),0.85);
-		}
-	}
+        .grid_3 .post {
+            background : rgba(mix($accent3,#000,.9),.85);
+        }
+    }
 }
 
 .detail_post {
-	max-width: 960px;
-	margin: 0 auto;
+    max-width : 960px;
+    margin : 0 auto;
 
-	.post {
-		background: #fff;
-		border-radius: 0.2em;
-		box-shadow: 0 0.1em 0.35em rgba(0,0,0,0.26);
+    .post {
+        border-radius : .2em;
+        background : #fff;
+        -webkit-box-shadow : 0 .1em .35em rgba(0,0,0,.26);
+                box-shadow : 0 .1em .35em rgba(0,0,0,.26);
 
-		.post_container {
-			padding: 2.5em;
-		}
+        .post_container {
+            padding : 2.5em;
+        }
 
-		.title {
-			margin: 0 0 1em;
-			padding: 0 0 1em;
-			border-bottom: 1px solid rgba(0,0,0,0.12);
-			font-size: 1.875em;
-		}
+        .title {
+            font-size : 1.875em;
 
-		.info {
-			font-size: 0.75em;
-			color: rgba(0,0,0,0.54);
+            margin : 0 0 1em;
+            padding : 0 0 1em;
 
-			.date {
-				float: left;
-				margin: 0 1.5em 0 0;
+            border-bottom : 1px solid rgba(0,0,0,.12);
+        }
+    }
 
-				.icon-icon_clock {
-					float: left;
-					display: inline;
-					margin: 0 0.15em 0 0;
-					font-size: 2.4em;
-				}
+    .post_body {
+        h1 ,
+        h2 ,
+        h3 ,
+        h4 ,
+        h5 ,
+        h6 {
+            font-weight : bold;
+            line-height : 1.2;
 
-				time {
-					float: left;
-					line-height: 2.4em;
-				}
-			}
+            margin : 1.5em 0;
+        }
 
-			.visitors {
-				float: left;
-				margin: 0 1.5em 0 0;
+        h2 {
+            padding : 0 0 0 .5em;
 
-				.icon-icon_book {
-					float: left;
-					display: inline;
-					margin: 0 0.15em 0 0;
-					font-size: 2.4em;
-				}
+            border-left : .2em solid #83cace;
+        }
 
-				span {
-					float: left;
-					line-height: 2.4em;
-				}
-			}
+        iframe ,
+        p ,
+        pre {
+            line-height : 1.6;
 
-			.tags {
-				line-height: 2.4em;
+            margin : 0 0 1.5em;
+        }
 
-				a {
-					margin: 0 0.5em 0 0;
-				}
-			}
-		}
-	}
+        h1 ,
+        h2 ,
+        h3 ,
+        h4 ,
+        h5 ,
+        h6 {
+            letter-spacing : -.02em;
+        }
 
-	.post_body {
-		h1,
-		h2,
-		h3,
-		h4,
-		h5,
-		h6 {
-			line-height: 1.2;
-			margin: 1.5em 0;
-			font-weight: bold;
-		}
+        h1 {
+            font-size : 2.2em;
+        }
 
-		h2 {
-			padding: 0 0 0 0.5em;
-			border-left: 0.2em solid #83cace;
-		}
+        h2 {
+            font-size : 1.8em;
+        }
 
-		iframe,
-		p,
-		pre {
-			line-height: 1.6;
-			margin: 0 0 1.5em;
-		}
+        h3 {
+            font-size : 1.5em;
+        }
 
-		h1,
-		h2,
-		h3,
-		h4,
-		h5,
-		h6 {
-			letter-spacing: -0.02em;
-		}
+        h4 {
+            font-size : 1.2em;
+        }
 
-		h1 {
-			font-size: 2.2em;
-		}
+        h5 {
+            font-size : 1em;
+        }
 
-		h2 {
-			font-size: 1.8em;
-		}
+        h6 {
+            font-size : .8em;
+        }
+    }
 
-		h3 {
-			font-size: 1.5em;
-		}
+    hr.post_body_end {
+        margin : 3em 0 1em;
 
-		h4 {
-			font-size: 1.2em;
-		}
-
-		h5 {
-			font-size: 1em;
-		}
-
-		h6 {
-			font-size: 0.8em;
-		}
-	}
-
-	hr.post_body_end {
-		border: none;
-		border-bottom: 1px solid #efefef;
-		margin: 3em 0 1em;
-	}
+        border : none;
+        border-bottom : 1px solid #efefef;
+    }
 }
 @media screen and (max-width: 48em) {
-	 @include colored_grid_css;
+    @include colored_grid_css;
 
-	.footer {
-		display: none;
-	}
+    .footer {
+        display : none;
+    }
 
-	.detail_post .post .post_container {
-		padding: 1em 10px;
-	}
+    .detail_post .post .post_container {
+        padding : 1em 10px;
+    }
 }
 @media screen and (min-width: 48em) and (max-width: 64em) {
-	 @include colored_grid_css;
+    @include colored_grid_css;
 
-	.grid_1 {
-		width: 100%;
-	}
+    .grid_1 {
+        width : 100%;
+    }
 }
 
 .related_posts {
-	width: 100%;
+    width : 100%;
 
-	.action {
-		display: block;
-		width: 50%;
-		height: 2em;
-		font-size: 1.2em;
-		text-align: center;
-		
-		color: #333;
+    .action {
+        font-size : 1.2em;
 
-		&:hover {
-			color: #31b5bd;
-		}
+        display : block;
 
-		.arrow {
-			width: 1.5em;
-			height: 2em;
-			line-height: 40px;
-		}
-	}
+        width : 50%;
+        height : 2em;
 
-	.pre {
-		float: left;
+        text-align : center;
 
-		.arrow {
-			float: left;
-		}
+        color : #333;
 
-		span {
-			float: left;
-			font-size: 1.2em;
-			line-height: 40px;
-		}
-	}
+        &:hover {
+            color : #31b5bd;
+        }
 
-	.next {
-		float: right;
+        .arrow {
+            line-height : 40px;
 
-		.arrow {
-			float: right;
-		}
+            width : 1.5em;
+            height : 2em;
+        }
+    }
 
-		span {
-			float: right;
-			font-size: 1.2em;
-			line-height: 40px;
-		}
-	}
+    .pre {
+        float : left;
+
+        .arrow {
+            float : left;
+        }
+
+        span {
+            font-size : 1.2em;
+            line-height : 40px;
+
+            float : left;
+        }
+    }
+
+    .next {
+        float : right;
+
+        .arrow {
+            float : right;
+        }
+
+        span {
+            font-size : 1.2em;
+            line-height : 40px;
+
+            float : right;
+        }
+    }
 }

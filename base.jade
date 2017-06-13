@@ -7,15 +7,12 @@ html
             title= post.title or site.title
         +h.headers
         
-        //- 不使用pure框架了
-        //- +h.load('pure')
-		//- +h.load('/template/css/nav.scss')
         +h.load('//qiniu.cdswyda.com/source/lib/zui/css/zui.min.css')
-		+h.load('/template/css/nav.css')
-		+h.load('/template/css/reset.css')
-		//- +h.load('/template/css/fonts.css')
-		+h.load('/template/css/post.css')
-		+h.load('/template/css/style.scss')
+		//- +h.load('/template/css/style.scss')
+		//- +h.load('/template/css/nav.scss')
+		//- +h.load('/template/css/post.css')	
+		//- 上面文件合并并编译的css
+		+h.load('/template/css/mythemes.css')		
 
 		block head
 
@@ -43,7 +40,7 @@ html
 										.sub_title= site.configs.sub_title
 								.socials= site.socials
 
-            #main.container
+            #main.container-fluid
                 block content
 
 
