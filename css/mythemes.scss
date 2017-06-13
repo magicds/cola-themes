@@ -4,6 +4,9 @@ $dark1 : rgba(0, 0, 0, .87);
 $dark2 : rgba(0, 0, 0, .54);
 $light1 : rgba(255, 255, 255, 1);
 $primary1 : #31b5bd;
+$accent1 : #df8a7f;
+$accent2 : #f5c5bf;
+$accent3 : #3c3d60;
 $shadow1 : 0 1px 4px rgba(0, 0, 0, .35);
 $easing : cubic-bezier(.15, .95, .41, .95);
 @mixin box-sizing($value) {
@@ -88,7 +91,7 @@ body {
 
 body {
     font-family : -apple-system, Helvetica, Arial, "PingFang SC", "Source Han Sans SC", "Microsoft YaHei", "WenQuanYi MicroHei", sans-serif;
-    font-size : 1em;
+    font-size : 14px;
     line-height : 1.6;
 
     color : rgba(0, 0, 0, .87);
@@ -314,12 +317,15 @@ button {
             }
         }
         .icon-search {
+            font-size : 10px;
             line-height : 1.875em;
 
             float : right;
 
             width : 2em;
             height : 1.875em;
+
+            text-align : center;
 
             color : $dark1;
             &:before {
@@ -378,13 +384,6 @@ button {
     }
 }
 
-
-
-
-
-
-
-
 @media screen and (max-width: 48em) {
     .header .right_side .search {
         display : none;
@@ -422,10 +421,6 @@ button {
         opacity : 1;
     }
 }
-
-
-
-
 
 @-webkit-keyframes zoomin {
     0% {
@@ -543,62 +538,55 @@ button {
         }
     }
 }
-$primary1 : #31b5bd;
-$accent1 : #df8a7f;
-$accent2 : #f5c5bf;
-$accent3 : #3c3d60;
+
 @mixin colored_grid_css {
     #main {
         padding : 0;
     }
-
+    .post_container ,
     .posts {
         padding : 0;
+    }
+    .post {
+        margin : 0;
 
-        .post_container {
-            padding : 0;
-        }
+        border-radius : 0;
 
-        @at-root .post {
+        .title {
+            font-weight : normal;
+            line-height : 1.2;
+
             margin : 0;
+            padding : 60px 12px 5px;
 
-            border-radius : 0;
+            a {
+                font-size : 18px;
 
-            .title {
-                line-height : 1.2;
-
-                margin : 0;
-                padding : 60px 12px 5px;
-
-                a {
-                    font-size : 18px;
-
-                    color : #fff;
-                }
-            }
-
-            .post_body {
-                display : none;
-            }
-
-            @at-root .post-info {
-                padding : 0 15px 20px;
-
-                color : #f4f4f4;
+                color : #fff;
             }
         }
 
-        .grid_1 .post {
-            background : rgba(mix($primary1,#000,.7),.85);
+        .post_body {
+            display : none;
         }
 
-        .grid_2 .post {
-            background : rgba(mix($accent1,#000,.6),.85);
-        }
+        @at-root .post-info {
+            padding : 0 15px 20px;
 
-        .grid_3 .post {
-            background : rgba(mix($accent3,#000,.9),.85);
+            color : #f4f4f4;
         }
+    }
+
+    .grid_1 .post {
+        background : rgba(mix($primary1,#000,.7),.85);
+    }
+
+    .grid_2 .post {
+        background : rgba(mix($accent1,#000,.6),.85);
+    }
+
+    .grid_3 .post {
+        background : rgba(mix($accent3,#000,.9),.85);
     }
 }
 

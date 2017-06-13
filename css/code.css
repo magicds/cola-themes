@@ -1,7 +1,10 @@
+
 .codehilite .hll {
     background-color : #ffc;
 }
 .codehilite {
+    width : 100%;
+
     background : #f8f8f8;
 }
 .codehilite .c {
