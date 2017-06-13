@@ -272,9 +272,9 @@ button {
                         -webkit-box-shadow : $shadow1;
                                 box-shadow : $shadow1;
 
-                        @include transition-transform(.3s, $easing);
-                        @include transform-origin(50% 0%);
                         @include transform(scale(0, 1));
+                        @include transform-origin(50% 0%);
+                        @include transition-transform(.3s, $easing);
                     }
                     &:hover {
                         color : #fff;
@@ -313,7 +313,7 @@ button {
                 font-size : 2em;
             }
         }
-        .icon-icon_search {
+        .icon-search {
             line-height : 1.875em;
 
             float : right;
@@ -332,16 +332,21 @@ button {
 
             width : 3.75em;
             height : 100%;
+            margin : 0;
+            padding : 0;
 
             text-indent : 1em;
 
             color : $dark2;
+            border : none;
+            background : transparent;
 
             @include transition(width .3s $easing);
             &:focus {
                 width : 12em;
 
                 color : $dark1;
+                outline : 0;
             }
         }
     }

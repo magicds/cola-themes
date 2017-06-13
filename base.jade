@@ -16,7 +16,6 @@ html
 
 		block head
 
-
     body
         main#body_wrapper
             block header
@@ -30,7 +29,7 @@ html
 							+site.just_nav
 							.search
 								input(id="search-input", type="text", data-role="none")
-								a.icon-icon_search(href="javascript:;",id="search-icon")
+								a.icon.icon-search(href="javascript:;",id="search-icon")
 				if request.path == '/'
 					+scroll(jump=True, color="rgba(255, 255, 255, 0.54)", hover_color="rgba(255, 255, 255, 1)")
 						.index_header
