@@ -1,4 +1,11 @@
+table.codehilite {
+    width : 100%;
+    margin : 0 0 1.5em;
+    /*     border:1px solid #ccc; */
+    /* border-radius:4px; */
 
+    border-collapse : collapse;
+}
 .codehilite .hll {
     background-color : #ffc;
 }
@@ -6,6 +13,55 @@
     width : 100%;
 
     background : #f8f8f8;
+}
+.codehilite .linenos ,
+.codehilite .code {
+    padding : 0;
+}
+
+.codehilite .linenos {
+    width : 30px;
+}
+.codehilite  pre {
+    overflow : auto;
+
+    white-space : pre;
+}
+.codehilite .linenos pre ,
+.codehilite .code pre ,
+.codehilite > pre {
+    margin : 0;
+    padding : 4px;
+
+    border : 1px solid #ccc;
+    border-radius : 4px;
+    background : #f8f8f8;
+}
+.codehilite .linenos pre {
+    text-align : center;
+
+    border-right-width : 0;
+    border-top-right-radius : 0;
+    border-bottom-right-radius : 0;
+}
+.codehilite .code pre {
+    border : 1px solid #ccc;
+    border-top-left-radius : 0;
+    border-bottom-left-radius : 0;
+}
+.codehilite > pre {
+    border : 1px solid #ccc;
+    border-radius : 4px;
+}
+/* 小屏幕时 不显示行号 */
+@media screen and (max-width: 48em) {
+    .codehilite .linenos {
+        display : none;
+    }
+    .codehilite .code pre {
+        border-top-left-radius : 4px;
+        border-bottom-left-radius : 4px;
+    }
 }
 .codehilite .c {
     font-style : italic;

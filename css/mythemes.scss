@@ -275,9 +275,9 @@ button {
                         -webkit-box-shadow : $shadow1;
                                 box-shadow : $shadow1;
 
-                        @include transform(scale(0, 1));
-                        @include transform-origin(50% 0%);
                         @include transition-transform(.3s, $easing);
+                        @include transform-origin(50% 0%);
+                        @include transform(scale(0, 1));
                     }
                     &:hover {
                         color : #fff;
@@ -692,12 +692,18 @@ button {
     .detail_post .post .post_container {
         padding : 1em 10px;
     }
+    .detail_post .post .post_body {
+        display : block;
+    }
 }
 @media screen and (min-width: 48em) and (max-width: 64em) {
     @include colored_grid_css;
 
     .grid_1 {
         width : 100%;
+    }
+    .detail_post .post .post_body {
+        display : block;
     }
 }
 
