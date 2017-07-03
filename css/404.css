@@ -1,0 +1,3 @@
+body{background:#eee}.not_found{text-align:center}.not_found h1{line-height:1.2em;font-size:5em}.not_found .img{background:url(/template/images/not_found.png) no-repeat center center;background-size:contain}.not_found a{display:block;width:12.5em;height:3em;line-height:3em;margin:0 auto;background:#31b5bd;border-radius:0.2em;color:#fff}@media only screen and (max-width: 47.99em){.not_found{padding:4em 0}.not_found h1{font-size:3.5em}.not_found .img{height:8em;margin:3em auto}}@media only screen and (min-width: 48em){.not_found{padding:6em 0}.not_found h1{font-size:5em}.not_found p{font-size:1.2em}.not_found .img{height:9em;margin:4em auto}}
+
+/*# sourceMappingURL=404.css.map */

@@ -1,9 +1,10 @@
 table.codehilite {
     width : 100%;
     margin : 0 0 1.5em;
+
+    table-layout : fixed;
     /*     border:1px solid #ccc; */
     /* border-radius:4px; */
-
     border-collapse : collapse;
 }
 .codehilite .hll {
@@ -45,6 +46,8 @@ table.codehilite {
     border-bottom-right-radius : 0;
 }
 .codehilite .code pre {
+    overflow : auto;
+
     border : 1px solid #ccc;
     border-top-left-radius : 0;
     border-bottom-left-radius : 0;

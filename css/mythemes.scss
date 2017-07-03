@@ -275,9 +275,9 @@ button {
                         -webkit-box-shadow : $shadow1;
                                 box-shadow : $shadow1;
 
-                        @include transition-transform(.3s, $easing);
-                        @include transform-origin(50% 0%);
                         @include transform(scale(0, 1));
+                        @include transform-origin(50% 0%);
+                        @include transition-transform(.3s, $easing);
                     }
                     &:hover {
                         color : #fff;
@@ -477,6 +477,9 @@ button {
                 margin : 0 0 1em;
             }
 
+            .post-info {
+                color : #666;
+            }
 
 
             @at-root .post-info {
@@ -530,9 +533,9 @@ button {
                     }
                 }
                 .tags {
-                    float : left;
+                    overflow : hidden;
 
-                    max-width : calc(100% - 20px);
+                    white-space : normal;
                 }
             }
         }
@@ -570,7 +573,7 @@ button {
             display : none;
         }
 
-        @at-root .post-info {
+        .post-info {
             padding : 0 15px 20px;
 
             color : #f4f4f4;
