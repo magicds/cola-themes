@@ -2,6 +2,7 @@
 
 html
     head
+		+response.set_header('X-Frame-Options','deny')
         +h.mobile_metas()
         block title
             title= post.title or site.title
