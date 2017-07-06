@@ -2,21 +2,38 @@ extends base.jade
 
 block title
 	title= "Archive - " + site.title
+    +h.load('/template/css/archive.css')
 
 block content 
-    .main_wrap
-    .list.clearfix
+    //- .main_wrap
+    .container-fluid
+        .arch-left
+            h2.recent-title= '最近文章'
+            recent_posts = posts.get_recent(10)
+            ul.recent-list
+                for post in recent_posts
+                    li.rescent-item
+                        span.date= post.date.format('%d/%b')
+                        a(data-postid=post.id,href=post.url,title=post.title)= post.title
+            h2=  '搜索文章'            
+                form(action="/")
+                    input(id="search",name="s",type="text")
+        ul.archive-list
+            //- 按年份月份为日志归组
+            entries = get_data(type='post',limit=100,sort='-date',).group('-date:year+month')
 
-        //- 按年份为日志归组
-        group_type = 'tags' if request.path.strip('/')=='tags' else '-date:year'
-        entries = get_data(type='post',limit=100,sort='desc').group(group_type)
-
-        for sub_title, posts in entries
-            .archive
-                .content
-                    h1= "~ " + sub_title + " ~"
-                    ul
-                        for post in posts
-                            li.clearfix
-                                time= post.date.format("%m.%d")
-                                a(href=post.url, title=post.title)= post.title
+            for year,posts in entries
+                li.arch-category.clearfix
+                    h3.arch-title= posts[0].date.format('%B %Y')
+                    if posts.length == 1				
+                        span.arch-count= '%s post'%posts.length
+                    else				
+                        span.arch-count= '%s posts'%posts.length
+                ul.arch-content
+                    for post in posts
+                        li.arch-item.clearfix
+                            a(href=post.url, title=post.title)= post.title
+                            .info
+                                | {{ post.visits or 0 }} | {{ post.date.format("%b %d,%Y") }}
+            +h.paginator()
+                            
