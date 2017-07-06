@@ -5,7 +5,7 @@ block title
     +h.load('/template/css/archive.css')
 
 block content 
-    //- .main_wrap
+    .main_wrap
     .container-fluid
         .arch-left
             h2.recent-title= '最近文章'
@@ -15,7 +15,7 @@ block content
                     li.rescent-item
                         span.date= post.date.format('%d/%b')
                         a(data-postid=post.id,href=post.url,title=post.title)= post.title
-            h2=  '搜索文章'            
+            h2=  '搜索文章'
                 form(action="/")
                     input(id="search",name="s",type="text")
         ul.archive-list
@@ -34,6 +34,6 @@ block content
                         li.arch-item.clearfix
                             a(href=post.url, title=post.title)= post.title
                             .info
-                                | {{ post.visits or 0 }} | {{ post.date.format("%b %d,%Y") }}
+                                | {{ post.visits or 0 }} | {{ post.date.format("%d/%b") }}
             +h.paginator()
                             

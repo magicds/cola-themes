@@ -269,9 +269,9 @@ button {
                         background : $primary1;
                         box-shadow : $shadow1;
 
-                        @include transition-transform(.3s, $easing);
-                        @include transform-origin(50% 0%);
                         @include transform(scale(0, 1));
+                        @include transform-origin(50% 0%);
+                        @include transition-transform(.3s, $easing);
                     }
                     &:hover {
                         color : #fff;
@@ -358,7 +358,7 @@ button {
 
 
 .footer {
-    padding : 2em 0;
+    /* padding : 2em 0;*/
     p {
         font-size : .75em;
         line-height : 2em;

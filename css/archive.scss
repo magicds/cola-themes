@@ -1,7 +1,18 @@
+.main-wrap {
+    position : relative;
+}
+.arch-left {
+    position : absolute;
+    top : 0;
+    left : 0;
+
+    width : 300px;
+}
+
 .archive-list {
     padding : 0 20px;
 
-    list-style : none;
+
     @at-root {
         /* li 归档的标题 即如 March 2017*/
         .arch-category {
@@ -28,8 +39,6 @@
 
                     margin-left : 16px;
 
-                    vertical-align : bottom;
-
                     color : #999;
                 }
             }
@@ -48,20 +57,20 @@
                 border-bottom : 1px dotted #ddd;
 
                 a {
-                    position : absolute;
-                    top : 0;
-                    right : 110px;
-                    bottom : 0;
-                    left : 0;
-
                     display : block;
+                    /* position : absolute;*/
+                    /* top : 0;*/
+                    /* right : 130px;*/
+                    /* bottom : 0;*/
+                    /* left : 0;*/
+                    float : left;
                 }
 
                 .info {
                     display : block;
                     float : right;
 
-                    width : 110px;
+                    width : 130px;
                 }
             }
         }
