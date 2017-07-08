@@ -8,8 +8,12 @@ block content
 	+posts.set_min_per_page(6)
     //- .posts: .posts_container: .pure-g
     .posts.posts_container
+		//- 搜索页
 		if posts.keywords != ""
 			h2.search-keyword= "搜索关键字【" + posts.keywords +  "】 相关文章为：" 
+		//- 分类日志页
+		if request.offset_path1 != ""
+			h2.category-type=  request.offset_path1
 	    //- 自动滚动加载更多
 		+page() 
 			for post in posts
@@ -19,7 +23,7 @@ block content
 				div(class=grid_class): .post.post_in_list.post_container
 					h1.title
 						a(href=post.url)= post.title
-						
+
 					.post_body.markdown= post.content.opening or post.content.limit(250)
 					.post-info.clearfix
 						.date.clearfix
