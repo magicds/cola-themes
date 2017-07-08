@@ -34,7 +34,7 @@ table.codehilite {
     margin : 0;
     padding : 4px;
 
-    border : 1px solid #ccc;
+    border : 1px solid #efe7e7;
     border-radius : 4px;
     background : #f8f8f8;
 }
@@ -48,12 +48,12 @@ table.codehilite {
 .codehilite .code pre {
     overflow : auto;
 
-    border : 1px solid #ccc;
+    border : 1px solid #efe7e7;
     border-top-left-radius : 0;
     border-bottom-left-radius : 0;
 }
 .codehilite > pre {
-    border : 1px solid #ccc;
+    border : 1px solid #efe7e7;
     border-radius : 4px;
 }
 /* 小屏幕时 不显示行号 */

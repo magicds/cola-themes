@@ -7,8 +7,11 @@ block head
 block content
     .detail_post: .detail_post_container
 		.post: .post_container
+
 			h1.title= post.title
+
 			.post_body.markdown= post.content
+
 			.post-info.clearfix
 				.date.clearfix
 					i.icon.icon-time
@@ -26,8 +29,7 @@ block content
 
 			+util.html_comments(post)
 
-
-			//- 上一篇、下一篇、以及移动端的“回顶部”
+			//- 上一篇、下一篇
 			.related_posts.clearfix
 				if posts.pre_one
 					a.action.pre(href=posts.pre_one.url,title=posts.pre_one.title)

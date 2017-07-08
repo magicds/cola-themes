@@ -7,7 +7,7 @@ block title
 block content 
     .main_wrap
     .container-fluid
-        .arch-left
+        .arch-recent
             h2.recent-title= '最近文章'
             recent_posts = posts.get_recent(10)
             ul.recent-list
@@ -16,24 +16,27 @@ block content
                         span.date= post.date.format('%d/%b')
                         a(data-postid=post.id,href=post.url,title=post.title)= post.title
             h2=  '搜索文章'
-                form(action="/")
-                    input(id="search",name="s",type="text")
-        ul.archive-list
-            //- 按年份月份为日志归组
-            entries = get_data(type='post',limit=100,sort='-date',).group('-date:year+month')
+                form.full-search(action="/")
+                    input(id="search-input", type="text", name="s", data-role="none")
+                    input.search-submit(type="submit",id="search-icon",value="")
+                    span.icon.icon-search
+        .arch-main
+            ul.archive-list
+                //- 按年份月份为日志归组
+                entries = get_data(type='post',limit=20,sort='-date',).group('-date:year+month')
 
-            for year,posts in entries
-                li.arch-category.clearfix
-                    h3.arch-title= posts[0].date.format('%B %Y')
-                    if posts.length == 1				
-                        span.arch-count= '%s post'%posts.length
-                    else				
-                        span.arch-count= '%s posts'%posts.length
-                ul.arch-content
-                    for post in posts
-                        li.arch-item.clearfix
-                            a(href=post.url, title=post.title)= post.title
-                            .info
-                                | {{ post.visits or 0 }} | {{ post.date.format("%d/%b") }}
-            +h.paginator()
+                for year,posts in entries
+                    li.arch-category.clearfix
+                        h3.arch-title= posts[0].date.format('%B %Y')
+                        if posts.length == 1				
+                            span.arch-count= '%s post'%posts.length
+                        else				
+                            span.arch-count= '%s posts'%posts.length
+                    ul.arch-content
+                        for post in posts
+                            li.arch-item.clearfix
+                                a(href=post.url, title=post.title)= post.title
+                                .info
+                                    | {{ post.visits or 0 }} | {{ post.date.format("%d/%b") }}
+            +h.paginator(paginator=None,style="simple",show_page_of=true)
                             

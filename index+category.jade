@@ -7,10 +7,14 @@ block head
     +h.load('markdown')
 
 block content
+	//- 分页为6
 	+posts.set_min_per_page(6)
     //- .posts: .posts_container: .pure-g
     .posts.posts_container
-		+page()
+		if posts.keywords != ""
+			h2.search-keyword= "搜索关键字：【" + posts.keywords +  "】 相关文章为：" 
+	    //- 自动滚动加载更多
+		+page() 
 			for post in posts
 				//- grid_class = 'grid pure-u-1 pure-u-md-1-2 pure-u-lg-1 ' + loop.cycle('grid_1', 'grid_2', 'grid_3')
 				grid_class = 'grid ' + loop.cycle('grid_1', 'grid_2', 'grid_3')
@@ -28,6 +32,6 @@ block content
 							span= post.visits or 0
 						if post.tags
 							.post-tags.clearfix
-		                        i.icon.icon-tags
-		                        .tags.clearfix: for tag in post.tags
-		    					    a(href="/tag/{{tag}}")= tag
+								i.icon.icon-tags
+								.tags.clearfix: for tag in post.tags
+									a(href="/tag/{{tag}}")= tag

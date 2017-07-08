@@ -4,6 +4,7 @@ html
     head
 		+response.set_header('X-Frame-Options','deny')
         +h.mobile_metas()
+
         block title
             title= post.title or site.title
         +h.headers
@@ -20,39 +21,17 @@ html
     body
         main#body_wrapper
             block header
-				header_class = "header header_for_index" if request.path == '/' else "header"
-				div(class=header_class)
-					.header_nav
-						.left_side
-							+font(site.configs.cn_font1 or 'noto-3')
-								.site_title: a(href='/')= site.title
-						.right_side
-							+site.just_nav
-							.search
-								input(id="search-input", type="text", data-role="none")
-								a.icon.icon-search(href="javascript:;",id="search-icon")
-				if request.path == '/'
-					+scroll(jump=True, color="rgba(255, 255, 255, 0.54)", hover_color="rgba(255, 255, 255, 1)")
-						.index_header
-							.index_header_container
-								if site.configs.sub_title
-									+font(site.configs.cn_font2 or 'noto-3')
-										.sub_title= site.configs.sub_title
-								.socials= site.socials
-
+				include widget/header
+				
             #main.container-fluid
                 block content
 
-
 			.footer
-				+site.footer
-				p
-					a(href="https://github.com/cdswyda/cola-themes", target="_blank") theme
-					span &nbsp;by cdswyda - powered by
-					a(href="https://bitcron.com/", target="_blank") Bitcron
-
+				block footer
+					include widget/footer
+					
         //- +h.load("jquery")
         +h.load("//cdn.bootcss.com/jquery/3.2.1/jquery.min.js")
-        +h.load("/template/js/base.js")
+        //- +h.load("/template/js/base.js")
 
-		+h.back_to_top
+		+h.back_to_top(label='<span class="xs"></span>')

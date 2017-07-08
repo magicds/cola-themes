@@ -92,7 +92,9 @@ body {
     color : rgba(0, 0, 0, .87);
     background : #f5f5f5;
 }
-
+ul {
+    list-style : none;
+}
 a {
     @include aColor($primary1);
 }
@@ -269,9 +271,9 @@ button {
                         background : $primary1;
                         box-shadow : $shadow1;
 
-                        @include transform(scale(0, 1));
-                        @include transform-origin(50% 0%);
                         @include transition-transform(.3s, $easing);
+                        @include transform-origin(50% 0%);
+                        @include transform(scale(0, 1));
                     }
                     &:hover {
                         color : #fff;

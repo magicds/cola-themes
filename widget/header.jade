@@ -1,0 +1,28 @@
+//- 需要同时判断是否为根路径 且 非搜索 不知道逻辑与怎么表达 暂时两个if吧
+if request.path == '/'
+    isIndex = true if posts.keywords == '' else false
+
+//- header_class = "header header_for_index" if request.path == '/' else "header"
+header_class = "header header_for_index" if isIndex else "header"
+div(class=header_class)
+    .header_nav
+        .left_side
+            +font(site.configs.cn_font1 or 'noto-3')
+                .site_title: a(href="/")= site.title
+        .right_side
+            +site.just_nav
+            form.full-search(action="/")
+                input(id="search-input", type="text", name="s", data-role="none")
+                input.search-submit(type="submit",id="search-icon",value="")
+                span.icon.icon-search
+                span= isIndex
+//- 若为首页 且非搜索页面时 新增滚动显示
+if isIndex
+        +scroll(jump=True, color="rgba(255, 255, 255, 0.54)", hover_color="rgba(255, 255, 255, 1)")
+            .index_header
+                .index_header_container
+                    if site.configs.sub_title
+                        +font(site.configs.cn_font2 or 'noto-3')
+                            .sub_title= site.configs.sub_title
+                    //- 默认提供的社交展示
+                    .socials= site.socials
