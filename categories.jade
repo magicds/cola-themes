@@ -11,7 +11,7 @@ block content
 	
 	#categories: .page_wrap: .pure-g.cat_list
 		for category in categories
-			.pure-u-1.pure-u-md-1-2.pure-u-lg-1-3: .category
+			.category
 				category_url = '/category/%s'%category.path
 				cover_src = category.cover or '/fb_static/unsplash/1.jpg'
 				a.pic(href=category_url)

@@ -10,12 +10,20 @@ block content
 
 			h1.title= post.title
 
+			if post.metadata.revisedate
+				reviseTime = "，最后修改时间 " + post.metadata.revisedate.format('%Y年%m月%d日，%A，%H:%M') + "。"
+			else
+				reviseTime = "。"
+
+			.post-describe= "本文由" + site.configs.author + "，于" + post.date.format('%Y年%m月%d日，%A，%H:%M') + "发布" + reviseTime 
+			
 			.post_body.markdown= post.content
 
 			.post-info.clearfix
 				.date.clearfix
 					i.icon.icon-time
-					span.time= post.date('%Y-%m-%d %H:%M')
+					span.time= post.date.format('%Y-%m-%d %H:%M')
+					span.revise-time= post.reviseDate.format('%Y-%m-%d %H:%M')
 				.visitors.clearfix
 					i.icon.icon-book
 					span= post.visits or 0
