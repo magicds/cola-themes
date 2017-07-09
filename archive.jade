@@ -17,7 +17,7 @@ block content
                         a(data-postid=post.id,href=post.url,title=post.title)= post.title
             h2=  '搜索文章'
                 form.full-search(action="/")
-                    input(id="search-input", type="text", name="s", data-role="none")
+                    input.search-input(id="search-input", type="text", name="s", data-role="none")
                     input.search-submit(type="submit",id="search-icon",value="")
                     span.icon.icon-search
         .arch-main

@@ -5,46 +5,45 @@ block head
     +h.load('/template/css/code.css')
 
 block content
-    .detail_post: .detail_post_container
-		.post: .post_container
+    .detail_post.container
 
-			h1.title= post.title
+		h1.title= post.title
 
-			if post.metadata.revisedate
-				reviseTime = "，最后修改时间 " + post.metadata.revisedate.format('%Y年%m月%d日，%A，%H:%M') + "。"
-			else
-				reviseTime = "。"
+		if post.metadata.revisedate
+			reviseTime = "，最后修改时间 " + post.metadata.revisedate.format('%Y年%m月%d日 %A %H:%M') + "。"
+		else
+			reviseTime = "。"
 
-			.post-describe= "本文由" + site.configs.author + "，于" + post.date.format('%Y年%m月%d日，%A，%H:%M') + "发布" + reviseTime 
-			
-			.post_body.markdown= post.content
+		.post-describe= "本文由" + site.configs.author + "，于" + post.date.format('%Y年%m月%d日 %A %H:%M') + "发布" + reviseTime 
+		
+		.post_body.markdown= post.content
 
-			.post-info.clearfix
-				.date.clearfix
-					i.icon.icon-time
-					span.time= post.date.format('%Y-%m-%d %H:%M')
-					span.revise-time= post.reviseDate.format('%Y-%m-%d %H:%M')
-				.visitors.clearfix
-					i.icon.icon-book
-					span= post.visits or 0
-				if post.tags
-                    .post-tags.clearfix
-                        i.icon.icon-tags
-                        .tags.clearfix: for tag in post.tags
-    					    a(href="/tag/{{tag}}")= tag
+		.post-info.clearfix
+			.date.clearfix
+				i.icon.icon-time
+				span.time= post.date.format('%Y-%m-%d %H:%M')
+				span.revise-time= post.reviseDate.format('%Y-%m-%d %H:%M')
+			.visitors.clearfix
+				i.icon.icon-book
+				span= post.visits or 0
+			if post.tags
+				.post-tags.clearfix
+					i.icon.icon-tags
+					.tags.clearfix: for tag in post.tags
+						a(href="/tag/{{tag}}")= tag
 
-			hr.post_body_end
+		hr.post_body_end
 
-			+util.html_comments(post)
+		+util.html_comments(post)
 
-			//- 上一篇、下一篇
-			.related_posts.clearfix
-				if posts.pre_one
-					a.action.pre(href=posts.pre_one.url,title=posts.pre_one.title)
-						.arrow.icon.icon-chevron-left
-						span= posts.pre_one.title
-				if posts.next_one
-					a.action.next(href=posts.next_one.url,title=posts.pre_one.title)
-						.arrow.icon.icon-chevron-right
-						span= posts.next_one.title
-				//- a.gotop.icon-arrow_up(href="#")
+		//- 上一篇、下一篇
+		.related_posts.clearfix
+			if posts.pre_one
+				a.action.pre(href=posts.pre_one.url,title=posts.pre_one.title)
+					.arrow.icon.icon-chevron-left
+					span= posts.pre_one.title
+			if posts.next_one
+				a.action.next(href=posts.next_one.url,title=posts.pre_one.title)
+					.arrow.icon.icon-chevron-right
+					span= posts.next_one.title
+			//- a.gotop.icon-arrow_up(href="#")

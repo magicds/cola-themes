@@ -1,17 +1,28 @@
-// 搜索
+
+// 空白处点击 收起菜单
 (function () {
-    var $searchInput = $('#search-input');
-    $searchInput.on('keyup',function (e) {
-        e.which === 13 && search();
+    var $navTrigger = $('.nav-trigger');
+
+    $('body').on('click',function (e) {
+        if($(e.target).closest('.right_side').length) return ;
+
+        var isShow = $navTrigger[0].checked;
+        if(isShow) $navTrigger[0].checked = false;
     });
-    
-    $('#search-icon').on('click',search);
-
-    var search = function () {
-        var key = $.trim($searchInput[0].value);
-        if (key.length === 0) return;
-
-        var loc = document.location;
-        document.location = loc.protocol + '//' + loc.host + '?s=' + key;
-    };
 })();
+
+// top fixed
+// (function () {
+//     var isIndex = $('.header').data('isindex');
+//     if(!isIndex) return;
+
+//     var timer;
+//     $(window).on('scroll',function () {
+//         clearTimeout(timer);
+
+//         timer = setTimeout(function() {
+//             var t = $(window).scrollTop();
+//             if()
+//         }, 20);
+//     });
+// })();

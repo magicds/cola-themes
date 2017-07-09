@@ -2,16 +2,18 @@
 if request.path == '/'
     isIndex = true if posts.keywords == '' else false
 
-header_class = "header header_for_index" if isIndex else "header"
-div(class=header_class,data-isindex=isindex)
-    .header_nav
+header_class = "header clearfix container-fulid header_for_index" if isIndex else "header clearfix container-fulid"
+div(class=header_class,data-isindex=isIndex)
+    .header_nav.container
         .left_side
             +font(site.configs.cn_font1 or 'noto-3')
                 .site_title: a(href="/")= site.title
         .right_side
+            span.nav-trigger-icon.icon.icon-bars
+            input.nav-trigger(type="checkbox")            
             +site.just_nav
             form.full-search(action="/")
-                input(id="search-input", name="s", data-role="none", type="text")
+                input.search-input(id="search-input", name="s", data-role="none", type="text")
                 input.search-submit(id="search-icon",type="submit",value="")
                 span.icon.icon-search
 //- 若为首页 且非搜索页面时 新增滚动显示
