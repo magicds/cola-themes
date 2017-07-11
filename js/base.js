@@ -1,4 +1,3 @@
-
 // 空白处点击 收起菜单
 (function () {
     var $navTrigger = $('.nav-trigger');
