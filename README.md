@@ -14,7 +14,12 @@
 
 ## changelog
 
+- 12/Jul 2017
+
+  - 加入搜索计数，css资源换为cdn
+
 - 09/Jul 2017
+
   - 头部优化修改
 
 - 08/Jul 2017
@@ -32,6 +37,12 @@
   - 去掉 footer 的内边距
 
 ## 未完成内容
+
+- 非常重要的样式问题，现在好多页面都是一团糟（add at 12/Jul 2017）
+
+- 评价使用 disqus 和默认的两种吧（add at 12/Jul 2017）
+
+- 换成 `bootstrap` 吧，研究一个就好。 （add at 12/Jul 2017）
 
 - ~~需要加入一个类似于`?postid=xxx`来唯一访问文章的支持。（add at 10/Jul 2017）~~ (remove at 11/Jul 2017 可在直接在日志的 `metedata` 中指定 url 来确定 就不用多此一举了)
 

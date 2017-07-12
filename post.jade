@@ -34,7 +34,8 @@ block content
 
 		hr.post_body_end
 
-		+util.html_comments(post)
+		//- +util.html_comments(post)
+		+post.comments_as_html()
 
 		//- 上一篇、下一篇
 		.related_posts.clearfix
