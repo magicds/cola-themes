@@ -100,10 +100,12 @@
       var bitcronTitle = el.querySelector('.comments_block_title');
       if (!bitcronTitle) return;
 
-      var errrTips = document.createElement('small');
-      errrTips.className = 'net-error-tips';
-      errrTips.innerText = '网络不通畅，为您加载Bitcron的评论框';
-      bitcronTitle.appendChild(errrTips);
+      var errTips = document.createElement('small');
+      errTips.className = 'net-error-tips';
+      errTips.innerText = '网络不通畅，为您加载Bitcron的评论框';
+      errTips.style.color = '#888';
+      errTips.style.marginLeft = '10px';
+      bitcronTitle.appendChild(errTips);
     });
   };
 
