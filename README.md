@@ -14,6 +14,10 @@
 
 ## changelog
 
+- 13/Jul 2017
+
+  - 根据网络情况，可使用多说的情况下加载多说。否则使用bitcron自己的。
+
 - 12/Jul 2017
 
   - 加入搜索计数，css资源换为cdn
@@ -40,7 +44,7 @@
 
 - 非常重要的样式问题，现在好多页面都是一团糟（add at 12/Jul 2017）
 
-- 评价使用 disqus 和默认的两种吧（add at 12/Jul 2017）
+- ~~评价使用 disqus 和默认的两种吧（add at 12/Jul 2017）~~ (done at 08/Jul 2017)
 
 - 换成 `bootstrap` 吧，研究一个就好。 （add at 12/Jul 2017）
 
