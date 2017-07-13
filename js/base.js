@@ -28,10 +28,10 @@
 
 (function (win, $, CDSWYDA) {
   // disqus config
-  win.disqus_config = function () {
-    this.page.url = location.href; // Replace PAGE_URL with your page's canonical URL variable
-    this.page.identifier = location.pathname.substr(6); // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-  };
+  // win.disqus_config = function () {
+  //   this.page.url = location.href; // Replace PAGE_URL with your page's canonical URL variable
+  //   this.page.identifier = location.pathname.substr(6); // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+  // };
 
   win.CDSWYDA = CDSWYDA;
 
