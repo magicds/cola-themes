@@ -149,7 +149,7 @@
             disqusContainer.style.display = 'none';
             console && console.log('测试成功，Disqus可用，正在加载');
             // 可以使用 再次加载并初始化
-            this.loadJsPromise(disqusCfg.jsUrl).done(function() {
+            CDSWYDA.loadJsPromise(disqusCfg.jsUrl).done(function() {
                 // 加载成功则显示Disqus，隐藏bitcron的
                 disqusContainer.style.display = 'block';
 
@@ -158,6 +158,46 @@
                 bitComment = null;
             });
         }).fail(function() {
+            console && console.log('很抱歉您的网络不能使用Disqus!');
+            var bitcronTitle = el.querySelector('.comments_block_title');
+            if (!bitcronTitle) return;
+
+            var errTips = document.createElement('small');
+            errTips.className = 'net-error-tips';
+            errTips.innerText = '网络不通畅，为您显示Bitcron的评论框';
+            errTips.style.color = '#888';
+            errTips.style.marginLeft = '10px';
+            bitcronTitle.appendChild(errTips);
+        });
+    };
+    CDSWYDA.loadDisqus1 = function(el, disqusCfg) {
+        if (!disqusCfg) {
+            disqusCfg = {
+                domId: 'disqus_thread',
+                jsUrl: 'https://cdswyda.disqus.com/embed.js'
+            };
+        }
+        var disqusContainer = document.createElement('div');
+        disqusContainer.setAttribute('id', disqusCfg.domId);
+        disqusContainer.style.display = 'none';
+        el.appendChild(disqusContainer);
+
+        console && console.log('测试能否使用Disqus');
+        // 需要加个时间戳判断，防止缓存问题误以为可以加载Disqus
+        // 加了时间戳 Disqus就不能使用了 不带时间戳则正常 所以需要加载两次吧 一次测试 一次正式
+        this.loadJs(disqusCfg.jsUrl + '?_t=' + +new Date(), function() {
+            disqusContainer.style.display = 'none';
+            console && console.log('测试成功，Disqus可用，正在加载');
+            // 可以使用 再次加载并初始化
+            CDSWYDA.loadJs(disqusCfg.jsUrl, function() {
+                // 加载成功则显示Disqus，隐藏bitcron的
+                disqusContainer.style.display = 'block';
+
+                var bitComment = el.querySelector('.doc_comments');
+                bitComment && (bitComment.style.display = 'none');
+                bitComment = null;
+            });
+        }, function() {
             console && console.log('很抱歉您的网络不能使用Disqus!');
             var bitcronTitle = el.querySelector('.comments_block_title');
             if (!bitcronTitle) return;
