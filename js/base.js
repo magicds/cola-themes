@@ -132,18 +132,19 @@
                 jsUrl: 'https://cdswyda.disqus.com/embed.js'
             };
         }
-        var disqusContainer = document.createElement('div');
-        disqusContainer.setAttribute('id', disqusCfg.domId);
-        disqusContainer.style.display = 'none';
-        el.appendChild(disqusContainer);
 
         console && console.log('测试能否使用Disqus');
         // 需要加个时间戳判断，防止缓存问题误以为可以加载Disqus
         // 加了时间戳 Disqus就不能使用了 不带时间戳则正常 所以需要加载两次吧 一次测试 一次正式
         this.loadJsPromise(disqusCfg.jsUrl + '?_t=' + +new Date(), true).done(function() {
-            disqusContainer.style.display = 'none';
             console && console.log('测试成功，Disqus可用，正在加载');
-            // 可以使用 再次加载并初始化
+            // 可以使用 创建需要的dom元素 隐藏并添加到页面 再次加载js进行初始化
+            var disqusContainer = document.createElement('div');
+
+            disqusContainer.setAttribute('id', disqusCfg.domId);
+            disqusContainer.style.display = 'none';
+            el.appendChild(disqusContainer);
+
             CDSWYDA.loadJsPromise(disqusCfg.jsUrl).done(function() {
                 // 加载成功则显示Disqus，隐藏bitcron的
                 disqusContainer.style.display = 'block';
