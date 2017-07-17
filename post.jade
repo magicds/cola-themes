@@ -14,10 +14,13 @@ block content
 		else
 			reviseTime = "。"
 
-		.post-describe= '本文由 <a href="/" target="_blank">' + site.configs.author + '</a> ，于' + post.date.format('%Y年%m月%d日 %A %H:%M') + '发布' + reviseTime 
+		.post-describes
+			p.post-describe= '本文由 <a href="/" target="_blank">' + site.configs.author + '</a> ，于' + post.date.format('%Y年%m月%d日 %A %H:%M') + '发布' + reviseTime 
 
-		if post.metedata.copyright
-			.post-copyright= post.metedata.copyright
+			a.post-url(href="{{post.url}}")= site.domain + post.url
+
+			if post.metadata.copyright
+				p.post-copyright= post.metadata.copyright
 
 		.post_body.markdown= post.content
 
