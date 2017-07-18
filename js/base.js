@@ -62,6 +62,7 @@
       me = this,
       script = document.createElement("script");
     script.type = 'text/javascript';
+    script.async = 'async';
 
     // ie8- 的兼容
     if ((this.browsers.isIE67 || this.browsers.isIE8) && script.readyState) {
