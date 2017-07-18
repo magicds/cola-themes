@@ -119,6 +119,13 @@
     document.body.appendChild(script);
     script.src = url;
   };
+  CDSWYDA.testDisqus = function () {
+    console && console.log('测试能否使用Disqus');
+    // 需要加个时间戳判断，防止缓存问题误以为可以加载Disqus
+    // 加了时间戳 Disqus就不能使用了 不带时间戳则正常 所以需要加载两次吧 一次测试 成功的情况下再次加载并使用
+    // 测试是换用disqus提供的评论计数的js文件吧，这个不会再发多余的请求。
+    return this.loadJsPromise('//cdswyda.disqus.com/count.js?_t=' + +new Date(), true);
+  };
   /**
    * 加载Disqus评论 
    * 
@@ -129,14 +136,11 @@
     if (!disqusCfg) {
       disqusCfg = {
         domId: 'disqus_thread',
-        jsUrl: 'https://cdswyda.disqus.com/embed.js'
+        jsUrl: '//cdswyda.disqus.com/embed.js'
       };
     }
 
-    console && console.log('测试能否使用Disqus');
-    // 需要加个时间戳判断，防止缓存问题误以为可以加载Disqus
-    // 加了时间戳 Disqus就不能使用了 不带时间戳则正常 所以需要加载两次吧 一次测试 一次正式
-    this.loadJsPromise(disqusCfg.jsUrl + '?_t=' + +new Date(), true).done(function () {
+    this.testDisqus().done(function () {
       console && console.log('测试成功，Disqus可用，正在加载');
       // 可以使用 创建需要的dom元素 隐藏并添加到页面 再次加载js进行初始化
       var disqusContainer = document.createElement('div');
