@@ -17,7 +17,8 @@ block content
 		.post-describes
 			p.post-describe= '本文由 <a href="/" target="_blank">' + site.configs.author + '</a> ，于' + post.date.format('%Y年%m月%d日 %A %H:%M') + '发布' + reviseTime 
 
-			a.post-url(href="{{post.url}}")= site.domain + post.url
+			p= '本文地址：' 
+				a.post-url(href="{{post.url}}")='https://' + site.domain + post.url
 
 			if post.metadata.copyright
 				p.post-copyright= post.metadata.copyright
