@@ -18,11 +18,13 @@ block content
 					span.split
 				span.read-count='阅读数 ' + post.visits
 
-			p= '本文地址：' 
+			//- p= '本文地址：' 
 				a.post-url(href="{{post.url}}")='https://' + site.domain + post.url
 
-			if post.metadata.copyright != "false"
-				p.post-copyright= '本文必须得到作者授权后，方可转载，摘要引流随意。'
+			if post.metadata.copyright != false
+				p.post-copyright= '本文必须得到作者授权后，方可转载，摘要引流随意。' + '<br>By <a href="/">' + site.title + '</a> , From <a href="' + post.url + '">' + 'https://' + site.domain + post.url + '</a>'
+
+
 
 		.post_body.markdown= post.content
 
