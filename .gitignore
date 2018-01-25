@@ -1,3 +1,5 @@
 /.*
 /node_modules/*
 !.gitignore
+css/*.css.map
+css/.Archive/*

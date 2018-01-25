@@ -1,26 +1,27 @@
 /* value settings*/
-$dark1 : rgba(0, 0, 0, .87);
-$dark2 : rgba(0, 0, 0, .54);
-$light1 : rgba(255, 255, 255, 1);
-$primary1 : #31b5bd;
-$shadow1 : 0 1px 4px rgba(0, 0, 0, .35);
-$easing : cubic-bezier(.15, .95, .41, .95);
+$dark1: rgba(0, 0, 0, .87);
+$dark2: rgba(0, 0, 0, .54);
+$light1: rgba(255, 255, 255, 1);
+$primary1: #31b5bd;
+$shadow1: 0 1px 4px rgba(0, 0, 0, .35);
+$easing: cubic-bezier(.15, .95, .41, .95);
 
 @mixin box-sizing($value) {
-    -webkit-box-sizing : $value;
-            box-sizing : $value;
+    -webkit-box-sizing: $value;
+       -moz-box-sizing: $value;
+            box-sizing: $value;
 }
 
 @mixin aColor($value) {
-    color : $value;
+    color: $value;
     &:active {
-        color : $value;
+        color: $value;
     }
     &:visited {
-        color : $value;
+        color: $value;
     }
     &:hover {
-        color : lighten($value, 15%);
+        color: lighten($value, 15%);
     }
 }
 
@@ -30,16 +31,16 @@ $easing : cubic-bezier(.15, .95, .41, .95);
 
 html ,
 body {
-    min-height : 100vh;
+    min-height: 100vh;
 }
 
 body {
-    font-family : -apple-system, Helvetica, Arial, "PingFang SC", "Source Han Sans SC", "Microsoft YaHei", "WenQuanYi MicroHei", sans-serif;
-    font-size : 1em;
-    line-height : 1.6;
+    font-family: -apple-system, Helvetica, Arial, "PingFang SC", "Source Han Sans SC", "Microsoft YaHei", "WenQuanYi MicroHei", sans-serif;
+    font-size: 1em;
+    line-height: 1.6;
 
-    color : rgba(0, 0, 0, .87);
-    background : #f5f5f5;
+    color: rgba(0, 0, 0, .87);
+    background: #f5f5f5;
 }
 
 a {
@@ -49,20 +50,20 @@ a {
 input ,
 textarea ,
 button {
-    font-family : -apple-system, Helvetica, Arial, "PingFang SC", "Source Han Sans SC", "Microsoft YaHei", "WenQuanYi MicroHei", sans-serif;
+    font-family: -apple-system, Helvetica, Arial, "PingFang SC", "Source Han Sans SC", "Microsoft YaHei", "WenQuanYi MicroHei", sans-serif;
 }
 
 ::-moz-selection {
-    color : $light1;
-    background : $primary1;
+    color: $light1;
+    background: $primary1;
 }
 
 ::selection {
-    color : $light1;
-    background : $primary1;
+    color: $light1;
+    background: $primary1;
 }
 
 ::-moz-selection {
-    color : $light1;
-    background : $primary1;
+    color: $light1;
+    background: $primary1;
 }

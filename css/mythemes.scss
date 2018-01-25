@@ -10,7 +10,9 @@ $accent3: #3c3d60;
 $shadow1: 0 1px 4px rgba(0, 0, 0, .35);
 $easing: cubic-bezier(.15, .95, .41, .95);
 @mixin box-sizing($value) {
-    box-sizing: $value;
+    -webkit-box-sizing: $value;
+       -moz-box-sizing: $value;
+            box-sizing: $value;
 }
 
 @mixin aColor($value) {
@@ -28,29 +30,41 @@ $easing: cubic-bezier(.15, .95, .41, .95);
 
 @mixin transform($value) {
     -webkit-transform: $value;
+       -moz-transform: $value;
+        -ms-transform: $value;
+         -o-transform: $value;
             transform: $value;
 }
 
 @mixin transform-origin($value) {
     -webkit-transform-origin: $value;
+       -moz-transform-origin: $value;
+        -ms-transform-origin: $value;
+         -o-transform-origin: $value;
             transform-origin: $value;
 }
 
 @mixin transition($value) {
     -webkit-transition: $value;
+       -moz-transition: $value;
+         -o-transition: $value;
             transition: $value;
 }
 
 @mixin transition-transform($value1, $value2) {
     -webkit-transition: -webkit-transform $value1 $value2;
+       -moz-transition:         transform $value1 $value2, -moz-transform $value1 $value2;
+         -o-transition:      -o-transform $value1 $value2;
             transition: -webkit-transform $value1 $value2;
             transition:         transform $value1 $value2;
+            transition:         transform $value1 $value2, -webkit-transform $value1 $value2, -moz-transform $value1 $value2, -o-transform $value1 $value2;
             transition:         transform $value1 $value2, -webkit-transform $value1 $value2;
 }
 
 
 @mixin animation($value) {
     -webkit-animation: $value;
+       -moz-animation: $value;
             animation: $value;
 }
 
@@ -58,7 +72,10 @@ $easing: cubic-bezier(.15, .95, .41, .95);
 
 @mixin order($value) {
     -webkit-box-ordinal-group: NaN;
-    order: $value;
+       -moz-box-ordinal-group: $value;
+    -ms-flex-order: $value;
+    -webkit-order: $value;
+            order: $value;
 }
 
 
@@ -133,7 +150,9 @@ button {
 
     border-bottom: 1px solid rgba(30,35,42,.06);
     background: #f1f1f1;
-    box-shadow: 0 1px 3px 0 rgba(0,34,77,.05);
+    -webkit-box-shadow: 0 1px 3px 0 rgba(0,34,77,.05);
+       -moz-box-shadow: 0 1px 3px 0 rgba(0,34,77,.05);
+            box-shadow: 0 1px 3px 0 rgba(0,34,77,.05);
     &:after {
         display: table;
         clear: both;
@@ -185,7 +204,7 @@ button {
             cursor: pointer;
             text-align: center;
 
-            @include aColor($dark1);
+@include aColor($dark1);
         }
         .nav-trigger {
             z-index: 2;
@@ -205,7 +224,7 @@ button {
         a {
             font-size: 1.5em;
 
-            @include aColor($dark1);
+@include aColor($dark1);
         }
     }
 
@@ -255,13 +274,19 @@ button {
 
                         content: "";
 
-                        border-radius: .2em;
+                        -webkit-border-radius: .2em;
+                           -moz-border-radius: .2em;
+                                border-radius: .2em;
                         background: $primary1;
-                        box-shadow: $shadow1;
+                        -webkit-box-shadow: $shadow1;
+                           -moz-box-shadow: $shadow1;
+                                box-shadow: $shadow1;
 
-                        @include transform(scale(0, 1));
-                        @include transform-origin(50% 0%);
-                        @include transition-transform(.3s, $easing);
+@include transform(scale(0, 1));
+
+@include transform-origin(50% 0%);
+
+@include transition-transform(.3s, $easing);
                     }
                     &:hover {
                         color: #fff;
@@ -282,7 +307,9 @@ button {
         height: 26px;
         margin: 17px 1em 0;
 
-        border-radius: 1.875em;
+        -webkit-border-radius: 1.875em;
+           -moz-border-radius: 1.875em;
+                border-radius: 1.875em;
         background: #fff;
 
         .search-submit ,
@@ -330,7 +357,8 @@ button {
             border: none;
             background: transparent;
 
-            @include transition(width .3s $easing);
+@include transition(width .3s $easing);
+
             &:focus {
                 width: 12em;
 
@@ -378,22 +406,36 @@ button {
         padding: 0 10px;
 
         -webkit-transition: -webkit-transform .4s $easing;
+           -moz-transition:         transform .4s $easing, -moz-transform .4s $easing;
+             -o-transition:      -o-transform .4s $easing;
                 transition: -webkit-transform .4s $easing;
                 transition:         transform .4s $easing;
+                transition:         transform .4s $easing, -webkit-transform .4s $easing, -moz-transform .4s $easing, -o-transform .4s $easing;
                 transition:         transform .4s $easing, -webkit-transform .4s $easing;
         -webkit-transform: scaleY(0);
+           -moz-transform: scaleY(0);
+            -ms-transform: scaleY(0);
+             -o-transform: scaleY(0);
                 transform: scaleY(0);
         -webkit-transform-origin: top center;
+           -moz-transform-origin: top center;
+            -ms-transform-origin: top center;
+             -o-transform-origin: top center;
                 transform-origin: top center;
 
         border: 1px solid rgba(30,35,42,.06);
         border-top: none;
         border-right: none;
         background: #f1f1f1;
-        box-shadow: -2px 2px 3px 0 rgba(0,34,77,.05);
+        -webkit-box-shadow: -2px 2px 3px 0 rgba(0,34,77,.05);
+           -moz-box-shadow: -2px 2px 3px 0 rgba(0,34,77,.05);
+                box-shadow: -2px 2px 3px 0 rgba(0,34,77,.05);
     }
     .nav-trigger:checked + .bitcron_nav_container {
         -webkit-transform: scaleY(1);
+           -moz-transform: scaleY(1);
+            -ms-transform: scaleY(1);
+             -o-transform: scaleY(1);
                 transform: scaleY(1);
     }
 
@@ -424,7 +466,9 @@ button {
 .header_for_index {
     border-color: transparent;
     background: none;
-    box-shadow: none;
+    -webkit-box-shadow: none;
+       -moz-box-shadow: none;
+            box-shadow: none;
 
     .site_title {
         a {
@@ -437,11 +481,15 @@ button {
             color: $light1;
             &:after {
                 background: $primary1;
-                box-shadow: $shadow1;
+                -webkit-box-shadow: $shadow1;
+                   -moz-box-shadow: $shadow1;
+                        box-shadow: $shadow1;
 
-                @include transform(scale(0, 1));
-                @include transform-origin(50% 0%);
-                @include transition-transform(.3s, $easing);
+@include transform(scale(0, 1));
+
+@include transform-origin(50% 0%);
+
+@include transition-transform(.3s, $easing);
             }
             &:hover {
                 color: #fff;
@@ -457,7 +505,9 @@ button {
     .bitcron_nav_container {
         border: none;
         background: transparent;
-        box-shadow: none;
+        -webkit-box-shadow: none;
+           -moz-box-shadow: none;
+                box-shadow: none;
     }
 }
 
@@ -472,7 +522,9 @@ button {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center center;
-    background-size: cover;
+    -webkit-background-size: cover;
+       -moz-background-size: cover;
+            background-size: cover;
 
     @at-root .index_header_container {
         position: absolute;
@@ -488,9 +540,11 @@ button {
         text-align: center;
 
         color: #fff;
-        background-size: 405px 53px;
+        -webkit-background-size: 405px 53px;
+           -moz-background-size: 405px 53px;
+                background-size: 405px 53px;
 
-        @include animation (fadein_up .5s $easing .3s both);
+@include animation (fadein_up .5s $easing .3s both);
 
         .sub_title {
             font-size: 1.3em;
@@ -502,7 +556,7 @@ button {
         .socials {
             margin-top: 30px;
 
-            @include animation (fadein_up .5s $easing .8s both);
+@include animation (fadein_up .5s $easing .8s both);
 
             a {
                 margin: 0 5px;
@@ -554,15 +608,35 @@ button {
         opacity: 1;
     }
 }
-@keyframes fadein_up {
+@-moz-keyframes fadein_up {
     0% {
         -webkit-transform: translate(0, 2em);
+           -moz-transform: translate(0, 2em);
                 transform: translate(0, 2em);
 
         opacity: 0;
     }
     100% {
         -webkit-transform: translate(0, 0);
+           -moz-transform: translate(0, 0);
+                transform: translate(0, 0);
+
+        opacity: 1;
+    }
+}
+@keyframes fadein_up {
+    0% {
+        -webkit-transform: translate(0, 2em);
+           -moz-transform: translate(0, 2em);
+             -o-transform: translate(0, 2em);
+                transform: translate(0, 2em);
+
+        opacity: 0;
+    }
+    100% {
+        -webkit-transform: translate(0, 0);
+           -moz-transform: translate(0, 0);
+             -o-transform: translate(0, 0);
                 transform: translate(0, 0);
 
         opacity: 1;
@@ -577,13 +651,29 @@ button {
         -webkit-transform: scale(1);
     }
 }
-@keyframes zoomin {
+@-moz-keyframes zoomin {
     0% {
         -webkit-transform: scale(0);
+           -moz-transform: scale(0);
                 transform: scale(0);
     }
     100% {
         -webkit-transform: scale(1);
+           -moz-transform: scale(1);
+                transform: scale(1);
+    }
+}
+@keyframes zoomin {
+    0% {
+        -webkit-transform: scale(0);
+           -moz-transform: scale(0);
+             -o-transform: scale(0);
+                transform: scale(0);
+    }
+    100% {
+        -webkit-transform: scale(1);
+           -moz-transform: scale(1);
+             -o-transform: scale(1);
                 transform: scale(1);
     }
 }
@@ -609,9 +699,13 @@ button {
         .post {
             margin: 0 0 1.875em;
 
-            border-radius: .2em;
+            -webkit-border-radius: .2em;
+               -moz-border-radius: .2em;
+                    border-radius: .2em;
             background: #fff;
-            box-shadow: 0 .1em .35em rgba(0, 0, 0, .26);
+            -webkit-box-shadow: 0 .1em .35em rgba(0, 0, 0, .26);
+               -moz-box-shadow: 0 .1em .35em rgba(0, 0, 0, .26);
+                    box-shadow: 0 .1em .35em rgba(0, 0, 0, .26);
 
             .content {
                 padding: 2.5em;
@@ -699,7 +793,9 @@ button {
     .post {
         margin: 0;
 
-        border-radius: 0;
+        -webkit-border-radius: 0;
+           -moz-border-radius: 0;
+                border-radius: 0;
 
         .title {
             font-weight: normal;
@@ -746,9 +842,13 @@ button {
 
 .detail_post {
     .post {
-        border-radius: .2em;
+        -webkit-border-radius: .2em;
+           -moz-border-radius: .2em;
+                border-radius: .2em;
         background: #fff;
-        box-shadow: 0 .1em .35em rgba(0,0,0,.26);
+        -webkit-box-shadow: 0 .1em .35em rgba(0,0,0,.26);
+           -moz-box-shadow: 0 .1em .35em rgba(0,0,0,.26);
+                box-shadow: 0 .1em .35em rgba(0,0,0,.26);
 
         .post_container {
             padding: 2.5em;
@@ -914,4 +1014,61 @@ button {
             float: right;
         }
     }
+}
+
+/* 目录 */
+.toc {
+    font-size: 16px;
+    line-height: 26px;
+
+    margin-bottom: 10px;
+}
+.toc:before {
+    display: block;
+
+    content: "目录";
+}
+.toc ul {
+    counter-reset: toc;
+}
+
+.toc a:before {
+    content: counters(toc, "-") ". ";
+    counter-increment: toc;
+}
+
+.toc li > ul {
+    padding-left: 1em;
+}
+
+.toc li > ul {
+    padding-left: 14px;
+}
+
+/* 标签 */
+.tags-list {
+    margin: 20px 20px;
+}
+.tags-item {
+    display: inline-block;
+
+    padding: 10px 5px;
+}
+.tags-item .name {
+    font-size: 14px;
+}
+.tags-item .count {
+    font-size: 10px;
+
+    vertical-align: top;
+}
+.tags-total ,
+.tag-post-total {
+    text-align: center;
+}
+.tag-title {
+    text-align: center;
+}
+.tag-list {
+    margin: 10px 20px 0;
 }
