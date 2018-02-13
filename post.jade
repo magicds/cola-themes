@@ -1,5 +1,12 @@
 extends base.jade
 
+block seo
+	//- +h.seo()
+	//- 先取.metadata.keywords 没有则用tags
+	keywords = site.configs.keywords + ',' + post.metadata.keywords if post.metadata.keywords else site.configs.keywords + ',' + post.tags.join(',')
+	//- keywords = site.configs.keywords or post.tags.join(',')
+	+h.seo(keywords, post.metadata.description or post.raw_content.limit(250))
+
 block head
 	//- +h.load('markdown')
 	+h.load('/template/css/code.css')
