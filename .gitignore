@@ -1,5 +1,6 @@
 /.*
 /node_modules/*
 !.gitignore
+!.editorconfig
 css/*.css.map
 css/.Archive/*
