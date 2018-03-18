@@ -27,12 +27,3 @@ if isIndex
         .socials= site.just_socials
         .scroll-down
             span.scroler-down
-
-    +scroll(jump=True, color="rgba(255, 255, 255, 0.54)", hover_color="rgba(255, 255, 255, 1)")
-        .index_header
-            .index_header_container
-                if site.configs.sub_title
-                    +font(site.configs.cn_font2 or 'noto-3')
-                        .sub_title= site.configs.sub_title
-                //- 默认提供的社交展示
-                .socials= site.socials
