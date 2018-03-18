@@ -1,0 +1,16 @@
+$header_height:60px;
+
+.header {
+    height: $header_height;
+    
+    &.index{
+        background: transparent;
+        border-color: transparent;
+    }
+}
+
+.scroll-page {
+    position: relative;
+    height: 100vh;
+    margin-top: -$header_height;
+}

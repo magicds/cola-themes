@@ -2,40 +2,39 @@
 
 html
     head
-		+response.set_header('X-Frame-Options','deny')
+        +response.set_header('X-Frame-Options','deny')
         +h.mobile_metas()
 
         block title
             title= post.title or site.title
-        
+
         block seo
             +h.seo()
-        
-        +h.load('//cdn.bootcss.com/zui/1.7.0/css/zui.css')
-		//- +h.load('/template/css/style.scss')
-		//- +h.load('/template/css/nav.scss')
-		//- +h.load('/template/css/post.css')	
-		//- 上面文件合并并编译的css
-		+h.load('/template/css/mythemes.css')		
 
-		block head
+        +h.load('//cdn.bootcss.com/zui/1.8.1/css/zui.lite.min.css')
+        //- +h.load('/template/css/style.scss')
+        //- +h.load('/template/css/nav.scss')
+        //- +h.load('/template/css/post.css')	
+        //- 上面文件合并并编译的css
+        +h.load('/template/css/mythemes.css')		
+
+        block head
 
     body
-        main#body_wrapper
-            block header
-				include widget/header
-				
-            #main.container-fluid
-                block content
+        #page-bg
+        block header
+            include widget/header
 
-			.footer
-				block footer
-					include widget/footer
-					
+        main#main.container-fluid
+            block content
+
+        block footer
+            include widget/footer
+
         //- +h.load("jquery")
         //- +h.load("//cdn.bootcss.com/jquery/3.2.1/jquery.min.js")
         +h.load("/template/js/base.js")
 
-		+h.back_to_top(label='<span class="icon icon-circle-arrow-up"></span>')
+        +h.back_to_top(label='<span class="icon icon-circle-arrow-up"></span>')
 
         block script

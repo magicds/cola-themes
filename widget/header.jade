@@ -2,8 +2,8 @@
 if request.path == '/'
     isIndex = true if posts.keywords == '' else false
 
-header_class = "header clearfix container-fulid header_for_index" if isIndex else "header clearfix container-fulid"
-div(class=header_class,data-isindex=isIndex)
+header_class = "header clearfix container-fulid index" if isIndex else "header clearfix container-fulid"
+header(class=header_class,data-isindex=isIndex)
     .header_nav.container
         .left_side
             +font(site.configs.cn_font1 or 'noto-3')
@@ -18,11 +18,21 @@ div(class=header_class,data-isindex=isIndex)
                 span.icon.icon-search
 //- 若为首页 且非搜索页面时 新增滚动显示
 if isIndex
-        +scroll(jump=True, color="rgba(255, 255, 255, 0.54)", hover_color="rgba(255, 255, 255, 1)")
-            .index_header
-                .index_header_container
-                    if site.configs.sub_title
-                        +font(site.configs.cn_font2 or 'noto-3')
-                            .sub_title= site.configs.sub_title
-                    //- 默认提供的社交展示
-                    .socials= site.socials
+    .scroll-page
+        if site.configs.sub_title
+            +font(site.configs.cn_font2 or 'noto-3')
+                h2.sub_title= site.configs.sub_title
+        //- 默认提供的社交展示
+        //- .socials= site.socials
+        .socials= site.just_socials
+        .scroll-down
+            span.scroler-down
+
+    +scroll(jump=True, color="rgba(255, 255, 255, 0.54)", hover_color="rgba(255, 255, 255, 1)")
+        .index_header
+            .index_header_container
+                if site.configs.sub_title
+                    +font(site.configs.cn_font2 or 'noto-3')
+                        .sub_title= site.configs.sub_title
+                //- 默认提供的社交展示
+                .socials= site.socials

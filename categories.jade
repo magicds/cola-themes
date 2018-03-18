@@ -1,21 +1,21 @@
 extends base.jade
 
 block head
-    +h.load("/template/css/categories.css")
+	+h.load("/template/css/categories.css")
 
 block title
-    title= "Categories - " + site.title
+	title= "Categories - " + site.title
 
 block content
-    categories = d.get_data(type='folder', sort='position', limit=99, level=1, excludes=["_", "template", "configs", "comments"])
-    
-    #categories: .page_wrap: .pure-g.cat_list
-        for mycategory in categories
-            .category
-                category_url = '/category/%s'%mycategory.path
-                cover_src = mycategory.cover or '/fb_static/unsplash/1.jpg'
-                a.pic(href=category_url)
-                    span(style="background-image:url({{cover_src}})")
-                h2
-                    a(href=category_url)= "[ %s ]"%mycategory.title
-                .category_description= mycategory.content.limit(999, keep_images=False)
+	categories = d.get_data(type='folder', sort='position', limit=99, level=1, excludes=["_", "template", "configs", "comments"])
+	
+	#categories: .page_wrap: .pure-g.cat_list
+		for mycategory in categories
+			.category
+				category_url = '/category/%s'%mycategory.path
+				cover_src = mycategory.cover or '/fb_static/unsplash/1.jpg'
+				a.pic(href=category_url)
+					span(style="background-image:url({{cover_src}})")
+				h2
+					a(href=category_url)= "[ %s ]"%mycategory.title
+				.category_description= mycategory.content.limit(999, keep_images=False)
