@@ -1,0 +1,30 @@
+.post-detail
+    article.article
+        h1.post-title
+        post-content= post.content
+        .post-info
+            .post-info-date
+                i.fa.fa-calendar-alt
+                span.time= postItem.date('%Y-%m-%d')
+            .post-info-visitors
+                i.fa.fa-book
+                span.visitors= postItem.visits or 0
+            if postItem.tags
+                .post-info-tags
+                    i.fa.fa-tags
+                    span.post-info-tags: for tag in postItem.tags
+                        a(href="/tag/{{tag}}")= tag
+
+        .post-footer
+            h2 文章信息
+            ul
+                li 分类：
+                    a(href='/' + post.path, title=post.path)= post.category.path 
+                    span= post.category.filename
+                li 版权声明：自由转载-非商用-非衍生-保持署名
+                    a(href="http://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh", title="创意共享3.0许可证") 创意共享3.0许可证
+                li 发表日期：
+                    span= post.date.format('%Y-%m-%d %H:%M')
+                if post.metadata.revisedate
+                    li 修改日期：
+                        span= post.metadata.revisedate.format('%Y-%m-%d %H:%M')

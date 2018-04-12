@@ -1,18 +1,23 @@
-for postItem in posts
-    postClass = 'post-item ' + loop.cycle('post-1', 'post-2', 'post-3')
-    div(class=postClass)
-        h1.post-title
-            a(href=postItem.url)= postItem.title
-        .post-abstract= postItem.content.opening or postItem.content.limit(250)
-        .post-info
-            .post-info-date
-                i.fa.fa-calendar-alt
-                span.time= postItem.date('%Y-%m-%d')
-            .post-info-visitors
-                i.fa.fa-book
-                span.visitors= postItem.visits or 0
-            if postItem.tags
-                .post-info-tags
-                    i.fa.fa-tags
-                    span.post-info-tags: for tag in postItem.tags
-                        a(href="/tag/{{tag}}")= tag
+
+.container: .row.posts-list
+    for postItem in posts
+        postClass = 'post-item col-lg-12 col-xs-12 col-md-4 col-sm-6' + loop.cycle(' post-1', ' post-2', ' post-3')
+        article(class=postClass)
+            if postItem.cover
+                .post-bg(style="background-image:url({{postItem.cover}})")
+            .content
+                h1.post-title
+                    a(href=postItem.url)= postItem.title
+                .post-abstract= postItem.content.opening or postItem.content.limit(250)
+                .post-info
+                    .post-info-date
+                        i.fa.fa-calendar-alt
+                        span.time= postItem.date('%Y-%m-%d')
+                    .post-info-visitors
+                        i.fa.fa-book
+                        span.visitors= postItem.visits or 0
+                    if postItem.tags
+                        .post-info-tags
+                            i.fa.fa-tags
+                            span.post-info-tags: for tag in postItem.tags
+                                a(href="/tag/{{tag}}")= tag

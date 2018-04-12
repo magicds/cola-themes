@@ -1,0 +1,84 @@
+extends base.jade
+
+block seo
+	//- +h.seo()
+	//- 先取.metadata.keywords 没有则用tags
+	keywords = site.configs.keywords + ',' + post.metadata.keywords if post.metadata.keywords else site.configs.keywords + ',' + post.tags.join(',')
+	//- keywords = site.configs.keywords or post.tags.join(',')
+	+h.seo(keywords, post.metadata.description or post.raw_content.limit(250))
+
+block head
+	//- +h.load('markdown')
+	+h.load('/template/style/code.css')
+
+block content
+	.detail_post.container
+
+		h1.title= post.title
+
+		.post-describes
+			p.post-describe
+				span.date= '发布于 ' + post.date.format('%Y-%m-%d %H:%M') + reviseTime 
+				span.split
+				if post.metadata.revisedate
+				  span.date= "修改时间 " + post.metadata.revisedate.format('%Y-%m-%d %H:%M')
+					span.split
+				span.read-count='阅读数 ' + post.visits
+
+			//- p= '本文地址：' 
+				a.post-url(href="{{post.url}}")='https://' + site.domain + post.url
+
+			if post.metadata.copyright != false
+				p.post-copyright= '本文必须得到作者授权后，方可转载，摘要引流随意。' + '<br>By <a href="/">' + site.title + '</a> , From <a href="' + post.url + '">' + 'https://' + site.domain + post.url + '</a>'
+
+
+
+		.post_body.markdown= post.content
+
+		.post-info.clearfix
+
+			.date.clearfix
+				i.icon.icon-time
+				span.time= post.date.format('%Y-%m-%d %H:%M')
+
+			if post.metadata.reviseDate
+				.revise-date
+					i.icon.icon-time
+					span.revise-time= post.metadata.reviseDate.format('%Y-%m-%d %H:%M')
+
+			.visitors.clearfix
+				i.icon.icon-book
+				span= post.visits or 0
+
+			if post.tags
+				.post-tags.clearfix
+					i.icon.icon-tags
+					.tags.clearfix: for tag in post.tags
+						a(href="/tag/{{tag}}")= tag
+
+		hr.post_body_end
+
+		.post-share
+
+		//- +util.html_comments(post)
+		div.post-comments#post-comments
+			// 默认的
+			+post.comments_as_html()
+			// disqus
+
+
+		//- 上一篇、下一篇
+		.related_posts.clearfix
+			if posts.pre_one
+				a.action.pre(href=posts.pre_one.url,title=posts.pre_one.title)
+					.arrow.icon.icon-chevron-left
+					span= posts.pre_one.title
+			if posts.next_one
+				a.action.next(href=posts.next_one.url,title=posts.pre_one.title)
+					.arrow.icon.icon-chevron-right
+					span= posts.next_one.title
+			//- a.gotop.icon-arrow_up(href="#")
+// 加载Disqus
+block script
+	script.
+		CDSWYDA.loadDisqus(document.getElementById('post-comments'));
