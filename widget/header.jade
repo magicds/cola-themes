@@ -6,23 +6,21 @@ header_class = "header index" if isIndex else "header"
 header(class=header_class, data-isindex=isIndex)
     .container
         .left_side
-            +font(site.configs.cn_font1 or 'noto-3')
-                .site_title: a(href="/")= site.title
+            .site_title: a(href="/")= site.title
         .right_side
             span.nav-trigger-icon.icon.icon-bars
             input.nav-trigger(type="checkbox")            
             +site.just_nav
             form.full-search(action="/")
                 input.search-input(id="search-input", name="s", data-role="none", type="text")
-                input.search-submit(id="search-icon",type="submit",value="")
+                input.search-submit(id="search-icon", type="submit", value="")
                 span.icon.icon-search
 //- 若为首页 且非搜索页面时 新增滚动显示
 if isIndex
     .scroll-page
         if site.configs.sub_title
-            +font(site.configs.cn_font2 or 'noto-3')
-                h2.sub_title= site.configs.sub_title
-        //- 默认提供的社交展示
+            h2.sub_title= site.configs.sub_title
+        //- 默认提供的社交展示 不需要默认的样式
         //- .socials= site.socials
         .socials= site.just_socials
         .scroll-down
