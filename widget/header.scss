@@ -1,0 +1,28 @@
+$header_height: 60px;
+.header {
+    height: $header_height;
+    &.index {
+        background: transparent;
+        border-color: transparent;
+        box-shadow: none;
+    }
+    .container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+    .left-side {
+        flex: 0 0 auto;
+    }
+}
+.site-nav {
+    display: flex;
+    flex-direction: row;
+}
+.scroll-page {
+    position: relative;
+    height: 100vh;
+    margin-top: -$header_height;
+}

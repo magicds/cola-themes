@@ -1,7 +1,7 @@
 
 .container: .row.posts-list
     for postItem in posts
-        postClass = 'post-item col-lg-12 col-xs-12 col-md-4 col-sm-6' + loop.cycle(' post-1', ' post-2', ' post-3')
+        postClass = 'post-item' + loop.cycle(' post-1', ' post-2', ' post-3', ' post-4', ' post-5')
         article(class=postClass)
             if postItem.cover
                 .post-bg(style="background-image:url({{postItem.cover}})")
