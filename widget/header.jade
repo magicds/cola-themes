@@ -5,12 +5,16 @@ if request.path == '/'
 header_class = "header index" if isIndex else "header"
 header(class=header_class, data-isindex=isIndex)
     .container
-        .left_side
+        .left-side
             .site_title: a(href="/")= site.title
-        .right_side
+        .right-side
             span.nav-trigger-icon.icon.icon-bars
-            input.nav-trigger(type="checkbox")            
-            +site.just_nav
+            input.nav-trigger(type="checkbox")
+            //- +site.just_nav
+            ul.site-nav
+                for navItem in site.configs.nav_configs
+                    li.site-nav-item
+                        a.site-nav-link(href="{{navItem.url}}")= navItem.name
             form.full-search(action="/")
                 input.search-input(id="search-input", name="s", data-role="none", type="text")
                 input.search-submit(id="search-icon", type="submit", value="")
