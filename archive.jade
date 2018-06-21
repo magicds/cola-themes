@@ -23,11 +23,13 @@ block content
         .arch-main
             ul.archive-list
                 //- 按年份月份为日志归组
-                entries = get_data(type='post',limit=20,sort='-date',).group('-date:year+month')
+                //- entries = get_data(type='post',limit=20,sort='-date',).group('-date:year+month')
+                entries = get_data(type='post',limit=20,sort='-date',).group('-date:year')
 
                 for year,posts in entries
                     li.arch-category.clearfix
-                        h3.arch-title= posts[0].date.format('%B %Y')
+                        //- h3.arch-title= posts[0].date.format('%B %Y')
+                        h3.arch-title= posts[0].date.format('%Y')
                         if posts.length == 1				
                             span.arch-count= '%s post'%posts.length
                         else				

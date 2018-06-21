@@ -1,44 +1,44 @@
 extends base.jade
 
 block seo
-	//- +h.seo()
-	//- 先取.metadata.keywords 没有则用tags
-	keywords = site.configs.keywords + ',' + post.metadata.keywords if post.metadata.keywords else site.configs.keywords + ',' + post.tags.join(',')
-	//- keywords = site.configs.keywords or post.tags.join(',')
-	+h.seo(keywords, post.metadata.description or post.raw_content.limit(250))
+    //- +h.seo()
+    //- 先取.metadata.keywords 没有则用tags
+    keywords = site.configs.keywords + ',' + post.metadata.keywords if post.metadata.keywords else site.configs.keywords + ',' + post.tags.join(',')
+    //- keywords = site.configs.keywords or post.tags.join(',')
+    +h.seo(keywords, post.metadata.description or post.raw_content.limit(250))
 
 block head
-	//- +h.load('markdown')
-	+h.load('/template/style/code.css')
+    //- +h.load('markdown')
+    +h.load('/template/style/code.css')
 
 block content
-	.detail_post.container
-        
-        include widget/postDetail        
+    .detail_post.container
 
-		hr.post_body_end
+        include widget/postDetail
 
-		.post-share
+        hr.post_body_end
 
-		//- +util.html_comments(post)
-		div.post-comments#post-comments
-			// 默认的
-			+post.comments_as_html()
-			// disqus
+        .post-share
+
+        //- +util.html_comments(post)
+        div.post-comments#post-comments
+            // 默认的
+            +post.comments_as_html()
+            // disqus
 
 
-		//- 上一篇、下一篇
-		.related_posts.clearfix
-			if posts.pre_one
-				a.action.pre(href=posts.pre_one.url,title=posts.pre_one.title)
-					.arrow.icon.icon-chevron-left
-					span= posts.pre_one.title
-			if posts.next_one
-				a.action.next(href=posts.next_one.url,title=posts.pre_one.title)
-					.arrow.icon.icon-chevron-right
-					span= posts.next_one.title
-			//- a.gotop.icon-arrow_up(href="#")
+        //- 上一篇、下一篇
+        .related_posts.clearfix
+            if posts.pre_one
+                a.action.pre(href=posts.pre_one.url,title=posts.pre_one.title)
+                    .arrow.icon.icon-chevron-left
+                    span= posts.pre_one.title
+            if posts.next_one
+                a.action.next(href=posts.next_one.url,title=posts.pre_one.title)
+                    .arrow.icon.icon-chevron-right
+                    span= posts.next_one.title
+            //- a.gotop.icon-arrow_up(href="#")
 // 加载Disqus
 block script
-	script.
-		CDSWYDA.loadDisqus(document.getElementById('post-comments'));
+    script.
+        CDSWYDA.loadDisqus(document.getElementById('post-comments'));

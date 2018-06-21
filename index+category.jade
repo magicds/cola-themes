@@ -4,8 +4,8 @@ block title
     title= site.title if not request.path.strip("/") else request.offset_path1
 
 block content
-    //- 分页为6
-    +posts.set_min_per_page(9)
+    //- 分页为10
+    +posts.set_min_per_page(10)
     //- .posts: .posts_container: .pure-g
     .posts.container
         //- 搜索页
